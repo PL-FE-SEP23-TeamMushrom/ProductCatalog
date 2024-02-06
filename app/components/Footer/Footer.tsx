@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Logo from "../../../public/ui-kit/Logo.webp";
 import ArrowUp from "../../../public/icons/ArrowUp.svg";
 
