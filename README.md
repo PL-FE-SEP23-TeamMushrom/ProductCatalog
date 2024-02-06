@@ -197,7 +197,3 @@ Show `input:search` in the header when a page contains a `ProductList` to search
 1. Implement the login/register functionality and show the author's email of each order in the list.
 1. Restrict order editing only to its author.
 1. Deploy the App and the API with the DB to [Render.com](https://render.com)
-
-
-### Settings
-node -v 20.11.0
