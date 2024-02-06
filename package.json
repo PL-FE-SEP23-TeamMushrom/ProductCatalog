@@ -1,7 +1,6 @@
 {
   "name": "product_catalog",
   "version": "0.1.0",
-  "homepage": "https://PL-FE-SEP23-TeamMushrom.github.io/product-catalog",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "gh-pages": "^6.1.1",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18"
