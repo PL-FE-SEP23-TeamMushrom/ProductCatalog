@@ -20,6 +20,9 @@ const config: Config = {
         "196": "196px",
         "506": "506px",
       },
+      colors: {
+        'footer-gray': '#E2E6E9',
+      }
     },
   },
   plugins: [],
