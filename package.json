@@ -4,8 +4,6 @@
   "homepage": "https://PL-FE-SEP23-TeamMushrom.github.io/product-catalog",
   "private": true,
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
