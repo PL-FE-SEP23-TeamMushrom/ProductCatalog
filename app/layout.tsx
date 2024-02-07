@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 // components
-import Card from "./components/ProductCard/ProductCard";
+import Card from "@/components/ProductCard/ProductCard";
 
 export default function RootLayout({
   children,
@@ -13,10 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Card />
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
