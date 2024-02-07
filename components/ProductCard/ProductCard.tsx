@@ -1,6 +1,6 @@
 import Image from "next/image";
-import MockImage from "/public/apple-iphone-xs/gold/01.webp";
-import Heart from "/public/icons/Heart.svg";
+import MockImage from "@/public/apple-iphone-xs/gold/01.webp";
+import Heart from "@/public/icons/Heart.svg";
 
 export default function Card() {
   return (
