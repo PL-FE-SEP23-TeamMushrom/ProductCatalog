@@ -4,23 +4,21 @@ import ArrowUp from "../../../public/icons/ArrowUp.svg";
 
 export default function Footer() {
     return (
-        <div className="footer w-1440 h-96 flex flex-row items-center border-t border-footer-gray">
-            <div className="h-32">
-                <div className="w-89">
-                    <Image src={Logo} alt="logo" layout="fill" objectFit="contain" />
+        <div className="footer flex flex-row items-center border-t border-elements-color pt-8">
+                <div className="basis-1/3">
+                    <Image src={Logo} alt="logo" objectFit="contain" />
                 </div>
-                <div className="flex justify-between">
+                <div className="basis-1/3 flex justify-between text-secondary-color font-extrabold">
                     <a href="#" className="font-800">GITHUB</a>
                     <a href="#" className="font-800">CONTACT</a>
                     <a href="#" className="font-800">RIGHTS</a>
                 </div>
-                <div className="flex justify-end">
+                <div className="basis-1/3 flex justify-end text-secondary-color font-bold">
                     <p>Back to top</p>
-                    <button className="w-32 border-1 flex justify-center items-center">
-                        <Image src={ArrowUp} alt="arrow up" />
+                    <button className="border border-1 w-8 h-8 flex justify-center items-center ml-4 border-icon-color">
+                        <Image src={ArrowUp} alt="arrow up" width={16}/>
                     </button>
                 </div>
-            </div>
         </div>
     );
 }

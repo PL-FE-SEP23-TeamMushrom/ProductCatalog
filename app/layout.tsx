@@ -5,6 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 // components
 import Card from "./components/ProductCard/ProductCard";
+import Footer from "./components/Footer/Footer";
 
 export default function RootLayout({
   children,
@@ -15,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Card />
+        <Footer />
         {children}
       </body>
     </html>

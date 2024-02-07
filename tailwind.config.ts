@@ -21,7 +21,9 @@ const config: Config = {
         "506": "506px",
       },
       colors: {
-        'footer-gray': '#E2E6E9',
+        'secondary-color': '#89939A',
+        'icon-color': '#B4BDC3',
+        'elements-color': '#E2E6E9',
       }
     },
   },
