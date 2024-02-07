@@ -1,11 +1,10 @@
-
 import Navbar from "@/components/navigation/Navbar";
 
-export default function Phones() {
+export default function Accesories() {
   return (
     <>
       <Navbar />
-      <div>Phones Page</div>
+      <div>Accesories page</div>
     </>
   );
 }

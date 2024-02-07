@@ -1,7 +1,12 @@
-import Image from "next/image";
+import Card from "@/components/ProductCard/ProductCard";
+import Navbar from "@/components/navigation/Navbar";
 
 export default function Home() {
   return (
-    <div>No to zaczynamy</div>
+    <>
+      <Navbar />
+      <div>No to zaczynamy</div>
+      <Card />
+    </>
   );
 }
