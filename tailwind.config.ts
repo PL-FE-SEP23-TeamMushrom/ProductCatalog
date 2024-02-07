@@ -21,9 +21,13 @@ const config: Config = {
         "506": "506px",
       },
       colors: {
+        'primary-color': '#313237',
         'secondary-color': '#89939A',
         'icon-color': '#B4BDC3',
         'elements-color': '#E2E6E9',
+      },
+      margin: {
+        '69': '276px',
       }
     },
   },
