@@ -13,6 +13,7 @@ const config: Config = {
         "160": "160px",
         "208": "208px",
         "272": "272px",
+        "cartImage": "66px",
       },
       height: {
         "40": "40px",
@@ -20,6 +21,7 @@ const config: Config = {
         "192": "192px",
         "196": "196px",
         "506": "506px",
+        "cartImage": "66px",
       },
       colors: {
         'primary-color': '#313237',
