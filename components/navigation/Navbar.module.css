@@ -1,0 +1,4 @@
+.customLink {
+  border-color:#313237;
+  @apply border-b-2;
+}

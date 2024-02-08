@@ -3,7 +3,6 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// components
 import Card from "./components/ProductCard/ProductCard";
 import Footer from "./components/Footer/Footer";
 
