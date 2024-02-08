@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Logo from "../../../public/ui-kit/Logo.webp";
-import Close from "../../../public/icons/Close.svg";
-import Heart from "../../../public/icons/Heart.svg";
-import ShoppingBag from "../../../public/icons/ShoppingBag.svg";
+import Logo from "@/public/ui-kit/Logo.webp";
+import Close from "@/public/icons/Close.svg";
+import Heart from "@/public/icons/Heart.svg";
+import ShoppingBag from "@/public/icons/ShoppingBag.svg";
 
 export default function BurgerMenu() {
     return (
