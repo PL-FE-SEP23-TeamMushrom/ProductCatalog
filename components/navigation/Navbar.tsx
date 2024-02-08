@@ -4,9 +4,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css'
+import { useState } from 'react';
 
 const Navbar = () => {
   const pathname = usePathname();
+
+  const [isActive, setIsActive] = useState(false); // State to manage active class
+
+    const toggleActive = () => {
+        setIsActive(!isActive); // Toggle the state value
+    };
 
   return (
     <header className="w-full flex border-b justify-between">
@@ -28,7 +35,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className='flex'>
-        <div className={`${styles.hamburgermenu}`}>
+        <div className={`${styles.hamburgermenu} ${isActive ? styles.active : ''}`} onClick={toggleActive}>
           <span className={`${styles.bar} ${styles.bar1}`}></span>
           <span className={`${styles.bar} ${styles.bar2}`}></span>
           <span className={`${styles.bar} ${styles.bar3}`}></span>
