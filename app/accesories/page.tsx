@@ -1,4 +1,4 @@
-import Navbar from "@/components/navigation/Navbar";
+import Navbar from "@/components/Navigation/Navbar";
 
 export default function Accesories() {
   return (
