@@ -1,9 +1,12 @@
-import Image from "next/image";
-import Footer from "./components/Footer/Footer";
+
+import Card from "@/components/ProductCard/ProductCard";
+
 
 export default function Home() {
   return (
     <>
+      <div>No to zaczynamy</div>
+      <Card />
     </>
   );
 }
