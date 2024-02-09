@@ -6,7 +6,6 @@
     "env": {
       "KEY": "value"
     },
-    "functions": {
-      "source": "Frontend"
-    }
+    "source": "Frontend"
+
   }
