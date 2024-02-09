@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "your-vercel-project-name",
+  "name": "catalog-deploy",
   "builds": [
     {
       "src": "Frontend",
