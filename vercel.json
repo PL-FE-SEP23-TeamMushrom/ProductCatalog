@@ -1,14 +1,6 @@
 {
   "version": 2,
   "name": "catalog-deploy",
-  "builds": [
-    {
-      "src": "Frontend",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [],
-  "env": {
-    "KEY": "value"
-  }
+  "src": "Frontend",
+  "use": "@vercel/node"
 }
