@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "name": "your-vercel-project-name",
+    "builds": [
+      {
+        "src": "Frontend/**",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [],
+    "env": {
+      "KEY": "value"
+    }
+  }
