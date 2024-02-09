@@ -3,7 +3,7 @@
     "name": "your-vercel-project-name",
     "builds": [
       {
-        "src": "Frontend/**",
+        "src": "Frontend/",
         "use": "@vercel/node"
       }
     ],
