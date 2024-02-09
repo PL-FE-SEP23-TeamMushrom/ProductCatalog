@@ -3,7 +3,6 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-import Card from "@/components/ProductCard/ProductCard";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navigation/Navigation";
 
@@ -16,7 +15,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        <Card />
         {children}
         <Footer />
       </body>
