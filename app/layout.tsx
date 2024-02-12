@@ -1,6 +1,11 @@
 import { Inter } from "next/font/google";
 import localFont from 'next/font/local';
 import "./globals.css";
+import Footer from "@/components/Footer/Footer";
+import BurgerMenu from "@/components/BurgerMenu/BurgerMenu";
+import Cart from "@/components/Cart/Cart";
+import Navbar from "@/components/navigation/Navbar";
+import Pagination from "@/components/Pagination/Pagination";
 
 const inter = Inter({ subsets: ["latin"] });
 const mont = localFont({ src: [
@@ -14,12 +19,6 @@ const mont = localFont({ src: [
     },
   ],
 });
-
-import Footer from "@/components/Footer/Footer";
-import BurgerMenu from "@/components/BurgerMenu/BurgerMenu";
-import Cart from "@/components/Cart/Cart";
-import Navbar from "@/components/navigation/Navbar";
-import Pagination from "@/components/Pagination/Pagination";
 
 export default function RootLayout({
   children,
