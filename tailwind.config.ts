@@ -22,7 +22,9 @@ const config: Config = {
         "272": "272px",
         "320": "320px",
         "336": "336px",
+        "400": "400px",
         "544": "544px",
+        "600": "600px",
         "cartImage": "66px",
       },
       height: {
@@ -36,10 +38,10 @@ const config: Config = {
         "cartImage": "66px",
       },
       colors: {
-        'primary-color': '#313237',
-        'secondary-color': '#89939A',
-        'icon-color': '#B4BDC3',
-        'elements-color': '#E2E6E9',
+        "primary-color": "#313237",
+        "secondary-color": "#89939A",
+        "icon-color": "#B4BDC3",
+        "elements-color": "#E2E6E9",
       },
       margin: {
         "23": "23px",
