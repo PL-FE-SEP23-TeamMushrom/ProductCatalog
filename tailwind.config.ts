@@ -13,6 +13,8 @@ const config: Config = {
         "160": "160px",
         "208": "208px",
         "272": "272px",
+        "400": "400px",
+        "600": "600px",
       },
       height: {
         "40": "40px",
@@ -22,14 +24,14 @@ const config: Config = {
         "506": "506px",
       },
       colors: {
-        'primary-color': '#313237',
-        'secondary-color': '#89939A',
-        'icon-color': '#B4BDC3',
-        'elements-color': '#E2E6E9',
+        "primary-color": "#313237",
+        "secondary-color": "#89939A",
+        "icon-color": "#B4BDC3",
+        "elements-color": "#E2E6E9",
       },
       margin: {
-        '69': '276px',
-      }
+        "69": "276px",
+      },
     },
   },
   plugins: [],
