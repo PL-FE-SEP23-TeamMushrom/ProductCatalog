@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import localFont from 'next/font/local';
-import "./globals.css";
+import "@/app/globals.css";
 import Footer from "@/components/Footer/Footer";
 import BurgerMenu from "@/components/BurgerMenu/BurgerMenu";
 import Cart from "@/components/Cart/Cart";
@@ -20,20 +20,12 @@ const mont = localFont({ src: [
   ],
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body className={mont.className}>
+export default function CartPage() {
+    return (
+      <>
         <Navbar />
-        {/* <Cart /> */}
-        <BurgerMenu />
-        {children}
+        <Cart />
         <Footer />
-      </body>
-    </html>
-  );
+        </>
+    );
 }

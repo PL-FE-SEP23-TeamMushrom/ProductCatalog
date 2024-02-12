@@ -29,7 +29,10 @@ const Navbar = () => {
       </div>
       <div className='flex'>
         <Image className='px-4 py-3 box-content border-x border-gray-300' width={20} height={20} src={'/icons/Heart.svg'} alt="cart image" />
-        <Image className='px-4 py-3 box-content' width={20} height={20} src={'/icons/shop.svg'} alt="cart image" />
+        <Link href={'/cart'}>
+          <Image className='px-4 py-3 box-content' width={20} height={20} src={'/icons/shop.svg'} alt="cart image" />
+        </Link>
+        
       </div>
     </header>
   )
