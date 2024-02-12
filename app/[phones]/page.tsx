@@ -7,33 +7,19 @@ export default async function Phones() {
 
   const phones = await db
       // zmień kolekcję na "phones", "tablets", albo "accesories" przy szukaniu całej strony dla 1 produktu
-      .collection("products")
-      .find({})
-      .limit(16)
+      .collection<Product>("products")
+      .find({ category: "phones" })
       .toArray();
-
-  console.log(phones);
 
   return (
     <>
       <Pagination>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {phones.map(phone => (
+          <Card
+            key={phone.id}
+            product={phone}
+          />
+        ))}
       </Pagination>
     </>
   );
