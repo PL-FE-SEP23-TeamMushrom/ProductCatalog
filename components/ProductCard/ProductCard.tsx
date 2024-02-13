@@ -1,16 +1,22 @@
+"use client"
+import { usePathname } from 'next/navigation'
 import Image from "next/image";
 import Heart from "@/public/icons/Heart.svg";
+import Link from 'next/link';
 
 interface CardProps {
   product: Product,
 }
 
 const Card: React.FC<CardProps> = ({ product }) => {
-  let { name, fullPrice, price, screen, capacity, ram, image } = product;
+  const pathname = usePathname()
+  let { itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
   image = '/' + image;
+
 
   return (
     <div className="card w-272 h-506 flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg">
+      <Link key={itemId} href={`${pathname}/${itemId}`}>
       <div className="w-208 h-196 mt-4 relative">
         <Image src={image} alt="iphone" layout="fill" objectFit="contain" />
       </div>
@@ -34,6 +40,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
           <p>{ram}</p>
         </div>
       </div>
+      </Link>
       <div className="mt-4 flex justify-between w-208">
         <button className="bg-gray-700 w-160 h-40 text-white">
           Add to cart

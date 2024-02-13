@@ -9,18 +9,21 @@ export default async function Accesories() {
   // zmień kolekcję na "phones", "tablets", albo "accesories" przy szukaniu całej strony dla 1 produktu
       .collection<Product>("products")
       .find({ category: "accessories" })
-      .toArray();
-  
+      .toArray()
+
+  const serialized = JSON.parse(JSON.stringify(accesories)) as Product[];
+
   return (
     <>
       <Pagination>
-        {accesories.map(accesory => (
+        {serialized.map(item => (
           <Card
-            key={accesory.id}
-            product={accesory}
+            key={item.id}
+            product={item}
           />
         ))}
       </Pagination>
     </>
   );
 }
+    

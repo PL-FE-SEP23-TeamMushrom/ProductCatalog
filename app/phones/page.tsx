@@ -11,16 +11,19 @@ export default async function Phones() {
       .find({ category: "phones" })
       .toArray();
 
+  const serialized = JSON.parse(JSON.stringify(phones)) as Product[];
+  
   return (
     <>
       <Pagination>
-        {phones.map(phone => (
+        {serialized.map(item => (
           <Card
-            key={phone.id}
-            product={phone}
+            key={item.id}
+            product={item}
           />
         ))}
       </Pagination>
     </>
   );
 }
+    

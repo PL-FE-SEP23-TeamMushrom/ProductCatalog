@@ -11,16 +11,20 @@ export default async function Tablets() {
       .find({ category: "tablets" })
       .toArray();
   
+  const serialized = JSON.parse(JSON.stringify(tablets)) as Product[];
+
   return (
     <>
       <Pagination>
-        {tablets.map(tablet => (
+        {serialized.map(item => (
           <Card
-            key={tablet.id}
-            product={tablet}
+            key={item.id}
+            product={item}
           />
         ))}
       </Pagination>
     </>
   );
 }
+        
+    
