@@ -26,13 +26,13 @@ const Navbar = () => {
           <Link href={'/'} className={`${styles.normalLink} ${pathname === '/' ? styles.customLink : ''}`}>
             <div>Home</div>
           </Link>
-          <Link href={'/phones'} className={`${styles.normalLink} ${pathname === '/phones' ? styles.customLink : ''}`}>
+          <Link href={'/phones?page=1'} className={`${styles.normalLink} ${pathname === '/phones' ? styles.customLink : ''}`}>
             <div>Phones</div>
           </Link>
-          <Link href={'/tablets'} className={`${styles.normalLink} ${pathname === '/tablets' ? styles.customLink : ''}`}>
+          <Link href={'/tablets?page=1'} className={`${styles.normalLink} ${pathname === '/tablets' ? styles.customLink : ''}`}>
             <div>Tablets</div>
           </Link>
-          <Link href={'/accesories'} className={`${styles.normalLink} ${pathname === '/accesories' ? styles.customLink : ''}`}>
+          <Link href={'/accesories?page=1'} className={`${styles.normalLink} ${pathname === '/accesories' ? styles.customLink : ''}`}>
             <div>Accesories</div>
           </Link>
         </div>

@@ -9,8 +9,6 @@ const Card: React.FC<CardProps> = ({ product }) => {
   let { name, fullPrice, price, screen, capacity, ram, image } = product;
   image = '/' + image;
 
-  console.log(product)
-
   return (
     <div className="card w-272 h-506 flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg">
       <div className="w-208 h-196 mt-4 relative">

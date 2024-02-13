@@ -1,30 +1,32 @@
 "use client";
 
 import { useState, ReactNode } from "react";
-import { useRouter } from "next/navigation";
+import { useSearchParams } from 'next/navigation'
 import React from "react";
+import Link from "next/link";
 
 interface PaginationProps {
   children: ReactNode;
 }
 
 export default function Pagination({ children }: PaginationProps) {
-  const router = useRouter();
-  const [currentPage, setCurrentPage] = useState(1);
+  const searchParams = useSearchParams()
+  
+  const [currentPage, setCurrentPage] = useState<number>(+(searchParams?.get('page') || 1));
   const itemsPerPage = 16;
   const childrenArray = React.Children.toArray(children);
   const totalPages = Math.ceil(childrenArray.length / itemsPerPage);
 
+
   const handleClick = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    router.push(`/phones/${pageNumber}`);
   };
 
   const renderPageNumbers = () => {
     return Array.from({ length: totalPages }, (_, index) => (
-      <button key={index} onClick={() => handleClick(index + 1)}>
+      <Link  href={`?page=${index + 1}`} key={index} onClick={() => handleClick(index + 1)}>
         {index + 1}
-      </button>
+      </Link>
     ));
   };
 

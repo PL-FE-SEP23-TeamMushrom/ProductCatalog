@@ -4,7 +4,7 @@ import "@/app/globals.css";
 import Footer from "@/components/Footer/Footer";
 import BurgerMenu from "@/components/BurgerMenu/BurgerMenu";
 import Cart from "@/components/Cart/Cart";
-import Navbar from "@/components/navigation/Navbar";
+import Navbar from "@/components/Navigation/Navbar";
 import Pagination from "@/components/Pagination/Pagination";
 
 const inter = Inter({ subsets: ["latin"] });
