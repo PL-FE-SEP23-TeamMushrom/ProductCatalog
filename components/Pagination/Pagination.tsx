@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, ReactNode } from "react";
-import { useSearchParams } from 'next/navigation'
+import { useState, ReactNode, Suspense } from "react";
+import { useSearchParams } from 'next/navigation';
 import React from "react";
 import Link from "next/link";
 
@@ -9,8 +9,21 @@ interface PaginationProps {
   children: ReactNode;
 }
 
+function Search() {
+  const searchParams = useSearchParams();
+  return <input placeholder="Search..." />;
+}
+
+export function Searchbar() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Search />
+    </Suspense>
+  );
+}
+
 export default function Pagination({ children }: PaginationProps) {
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
   
   const [currentPage, setCurrentPage] = useState<number>(+(searchParams?.get('page') || 1));
   const itemsPerPage = 16;
