@@ -1,6 +1,7 @@
 import Pagination from "@/components/Pagination/Pagination";
 import Card from "@/components/ProductCard/ProductCard";
 import connectToDatabase from "@/lib/connect";
+import { Suspense } from "react";
 
 export default async function Tablets() {
   const db = await connectToDatabase()
@@ -15,14 +16,16 @@ export default async function Tablets() {
 
   return (
     <>
-      <Pagination>
-        {serialized.map(item => (
-          <Card
-            key={item.id}
-            product={item}
-          />
-        ))}
-      </Pagination>
+      <Suspense>
+        <Pagination>
+          {serialized.map(item => (
+            <Card
+              key={item.id}
+              product={item}
+            />
+          ))}
+        </Pagination>
+      </Suspense>
     </>
   );
 }
