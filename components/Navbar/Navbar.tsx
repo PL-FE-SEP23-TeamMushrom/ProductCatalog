@@ -33,7 +33,7 @@ const Navbar = () => {
             <div>Tablets</div>
           </Link>
           <Link href={'/accessories?page=1'} className={`${styles.normalLink} ${pathname === '/accessories' ? styles.customLink : ''}`}>
-            <div>Accesories</div>
+            <div>Accessories</div>
           </Link>
         </div>
         <div className='flex'>
