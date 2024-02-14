@@ -32,7 +32,7 @@ const Navbar = () => {
           <Link href={'/tablets?page=1'} className={`${styles.normalLink} ${pathname === '/tablets' ? styles.customLink : ''}`}>
             <div>Tablets</div>
           </Link>
-          <Link href={'/accesories?page=1'} className={`${styles.normalLink} ${pathname === '/accesories' ? styles.customLink : ''}`}>
+          <Link href={'/accessories?page=1'} className={`${styles.normalLink} ${pathname === '/accessories' ? styles.customLink : ''}`}>
             <div>Accesories</div>
           </Link>
         </div>
