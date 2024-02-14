@@ -2,8 +2,7 @@ import { Inter } from "next/font/google";
 import localFont from 'next/font/local';
 import "./globals.css";
 import Footer from "@/components/Footer/Footer";
-import Navbar from "@/components/navigation/Navbar";
-import Cart from "@/components/Cart/Cart";
+import Navbar from "@/components/Navbar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 const mont = localFont({ src: [

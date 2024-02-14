@@ -1,6 +1,7 @@
 import Pagination from "@/components/Pagination/Pagination";
 import Card from "@/components/ProductCard/ProductCard";
 import connectToDatabase from "@/lib/connect";
+import { Suspense } from "react";
 
 export default async function Phones() {
   const db = await connectToDatabase()
@@ -11,16 +12,21 @@ export default async function Phones() {
       .find({ category: "phones" })
       .toArray();
 
+  const serialized = JSON.parse(JSON.stringify(phones)) as Product[];
+  
   return (
     <>
-      <Pagination>
-        {phones.map(phone => (
-          <Card
-            key={phone.id}
-            product={phone}
-          />
-        ))}
-      </Pagination>
+      <Suspense>
+        <Pagination>
+          {serialized.map(item => (
+            <Card
+              key={item.id}
+              product={item}
+            />
+          ))}
+        </Pagination>
+      </Suspense>
     </>
   );
 }
+    
