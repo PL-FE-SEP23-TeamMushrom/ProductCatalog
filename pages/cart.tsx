@@ -1,8 +1,11 @@
 import { Inter } from "next/font/google";
 import localFont from 'next/font/local';
-import "./globals.css";
+import "@/app/globals.css";
 import Footer from "@/components/Footer/Footer";
+import BurgerMenu from "@/components/BurgerMenu/BurgerMenu";
+import Cart from "@/components/Cart/Cart";
 import Navbar from "@/components/Navbar/Navbar";
+import Pagination from "@/components/Pagination/Pagination";
 
 const inter = Inter({ subsets: ["latin"] });
 const mont = localFont({ src: [
@@ -17,19 +20,12 @@ const mont = localFont({ src: [
   ],
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body className={mont.className}>
+export default function CartPage() {
+    return (
+      <>
         <Navbar />
-        {/* <Cart /> */}
-        {children}
+        <Cart />
         <Footer />
-      </body>
-    </html>
-  );
+        </>
+    );
 }

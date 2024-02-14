@@ -3,16 +3,16 @@ import Card from "@/components/ProductCard/ProductCard";
 import connectToDatabase from "@/lib/connect";
 import { Suspense } from "react";
 
-export default async function Tablets() {
+export default async function Accesories() {
   const db = await connectToDatabase()
 
-  const tablets = await db
+  const accesories = await db
   // zmień kolekcję na "phones", "tablets", albo "accesories" przy szukaniu całej strony dla 1 produktu
       .collection<Product>("products")
-      .find({ category: "tablets" })
-      .toArray();
-  
-  const serialized = JSON.parse(JSON.stringify(tablets)) as Product[];
+      .find({ category: "accessories" })
+      .toArray()
+
+  const serialized = JSON.parse(JSON.stringify(accesories)) as Product[];
 
   return (
     <>
@@ -29,5 +29,4 @@ export default async function Tablets() {
     </>
   );
 }
-        
     
