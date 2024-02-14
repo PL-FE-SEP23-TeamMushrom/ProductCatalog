@@ -6,9 +6,10 @@ import React from "react";
 
 interface PaginationProps {
   children: ReactNode;
+  grid?: boolean
 }
 
-export default function Pagination({ children }: PaginationProps) {
+export default function Pagination({ children, grid = true }: PaginationProps) {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 16;
@@ -35,7 +36,7 @@ export default function Pagination({ children }: PaginationProps) {
   return (
     <>
       <div className="flex justify-center">
-        <div className="grid xxl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-4 p-4">
+        <div className={grid ? "grid xxl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-4 p-4" : ""}>
           {paginatedChildren.map((child, index) => (
             <div key={index}>{child}</div>
           ))}
