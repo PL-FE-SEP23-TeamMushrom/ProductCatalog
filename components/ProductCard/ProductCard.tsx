@@ -5,14 +5,20 @@ import Heart from "@/public/icons/Heart.svg";
 import Link from "next/link";
 
 interface CardProps {
-  product: Product;
+  product: Product,
+  path?: string,
 }
 
-const Card: React.FC<CardProps> = ({ product }) => {
-  const pathname = usePathname();
-  let { itemId, name, fullPrice, price, screen, capacity, ram, image } =
-    product;
-  image = "/" + image;
+const Card: React.FC<CardProps> = ({ product, path }) => {
+  let pathname = usePathname()
+  let { itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
+  image = '/' + image;
+
+  if (path) {
+    pathname += path;
+  }
+
+
 
   return (
     <div className="card w-272 h-506 flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg">

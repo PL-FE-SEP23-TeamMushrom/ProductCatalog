@@ -1,5 +1,4 @@
 type Product = {
-    _id: object,
     id: number,
     itemId: string,
     name: string,
