@@ -1,4 +1,6 @@
 import NewModels from "@/components/NewModels/NewModels";
+import HotPrices from "@/components/HotPrices/HotPrices";
+import connectToDatabase from "@/lib/connect";
 
 import getManyWithYear from "@/utils/getManyWithFind";
 
