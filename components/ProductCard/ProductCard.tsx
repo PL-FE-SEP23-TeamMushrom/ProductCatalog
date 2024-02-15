@@ -6,12 +6,17 @@ import Link from 'next/link';
 
 interface CardProps {
   product: Product,
+  path?: string,
 }
 
-const Card: React.FC<CardProps> = ({ product }) => {
-  const pathname = usePathname()
+const Card: React.FC<CardProps> = ({ product, path }) => {
+  let pathname = usePathname()
   let { itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
   image = '/' + image;
+
+  if (path) {
+    pathname += path;
+  }
 
 
   return (

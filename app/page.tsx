@@ -7,10 +7,10 @@ export default async function Home() {
     .collection<Product>("products")
     .find({ year: 2022 })
     .toArray();
-  const serialized = JSON.parse(JSON.stringify(phones)) as Product[];
+
   return (
     <>
-      <NewModels newModels={serialized} />
+      <NewModels newModels={phones} />
     </>
   );
 }
