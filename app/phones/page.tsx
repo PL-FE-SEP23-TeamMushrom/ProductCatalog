@@ -12,8 +12,6 @@ export default async function Phones() {
       .collection<Product>("products")
       .find({ category: "phones" })
       .toArray();
-
-  const serialized = JSON.parse(JSON.stringify(phones)) as Product[];
   
   return (
     <>
@@ -21,7 +19,7 @@ export default async function Phones() {
       <Suspense>
         <Pagination>
           
-          {serialized.map(item => (
+          {phones.map(item => (
             <Card
               key={item.id}
               product={item}
