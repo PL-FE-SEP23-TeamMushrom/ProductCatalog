@@ -43,7 +43,9 @@ const Navbar = () => {
             <span className={`${styles.bar} ${styles.bar3}`}></span>
           </div>
           <Image className={`${styles.normalimage} border-x border-gray-300`} width={20} height={20} src={'/icons/Heart.svg'} alt="cart image" />
-          <Image className={`${styles.normalimage}`} width={20} height={20} src={'/icons/shop.svg'} alt="cart image" />
+          <Link href={'/cart'}>
+            <Image className='px-4 py-3 box-content' width={20} height={20} src={'/icons/shop.svg'} alt="cart image" />
+          </Link>
         </div>
       </header>
       {isActive && <BurgerMenu />}
