@@ -2,10 +2,40 @@ import connectToDatabase from "@/lib/connect";
 import Image from "next/image";
 import ArrowLeftBlack from "@/public/icons/ArrowLeftBlack.svg";
 import {CartProduct} from "./CartProduct";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import getProductById from "@/utils/getProductById";
+import getOne from "@/utils/getOne";
 
-export default async function Cart() {
+export default function Cart() {
 const [cart,setCart] =useState<{product:Product,quantity:number}[]>([]);
+
+useEffect(() => {
+    const loadProducts = async () => {
+      
+    let localCart='{}';
+    if (typeof window !== 'undefined') {
+    // Perform localStorage action
+    localCart = JSON.parse(localStorage.getItem("localCart") || '{}');
+
+  }
+
+    const products:{product:Product,quantity:number}[] = [];
+
+    for (const [key, value] of Object.entries(localCart)) {
+        // const product = await getProductById(Number(key));
+        //const accessory = await getOne("accessories", key);
+        const db = await connectToDatabase();
+
+        // if (product !== null) {
+        // products.push({product,quantity:Number(value),});
+        // }
+    }
+
+      setCart(products);
+    };
+
+    loadProducts();
+  }, []);
 
 const changeQuantity = (id:number,by:number) => {
     const cartCopy = cart.map(p=> {
@@ -22,19 +52,26 @@ const changeQuantity = (id:number,by:number) => {
     setCart(cartCopy);
 }
 
-const db = await connectToDatabase();
+// const db = await connectToDatabase();
 
-const localCart = JSON.parse(localStorage.getItem("localCart") || '{}');
+let localCart='{}';
+if (typeof window !== 'undefined') {
+    // Perform localStorage action
+    localCart = JSON.parse(localStorage.getItem("localCart") || '{}');
 
-const products = [];
+  }
+
+const products:{product:Product,quantity:number}[] = [];
+
 for (const [key, value] of Object.entries(localCart)) {
-    const product = await db
-    .collection<Product>("products")
-    .findOne({id: Number(key)});
+    // const product = await db
+    // .collection<Product>("products")
+    // .findOne({id: Number(key)});
+    // const product = await getProductById(Number(key));
 
-    if (product !== null) {
-    products.push({product,quantity:Number(value),});
-    }
+    // if (product !== null) {
+    // products.push({product,quantity:Number(value),});
+    // }
 }
 
 let totalCount = 0;
