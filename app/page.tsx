@@ -1,12 +1,8 @@
 import NewModels from "@/components/NewModels/NewModels";
-import connectToDatabase from "@/lib/connect";
+import getManyWithYear from "@/utils/getManyWithFind";
 
 export default async function Home() {
-  const db = await connectToDatabase();
-  const phones = await db
-    .collection<Product>("products")
-    .find({ year: 2022 })
-    .toArray();
+  const phones = await getManyWithYear(2022);
 
   return (
     <>

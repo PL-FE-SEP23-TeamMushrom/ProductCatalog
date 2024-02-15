@@ -1,28 +1,27 @@
 
 import Back from "@/components/Back/Back";
 import Location from "@/components/Location/Location";
-import connectToDatabase from "@/lib/connect";
-import { FullProductInfo } from "@/lib/types/fullProductInfo";
+import getOne from "@/utils/getOne";
 
 const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
 
-    const db = await connectToDatabase();
-    const Data = await db.collection<FullProductInfo>("phones").findOne({ id: params.itemId });
-    const { name, screen, resolution, processor, ram, camera, zoom, cell } =
-        Data as FullProductInfo;
+    const phone = await getOne("phones", params.itemId)
 
+    if (!phone) {
+        return null;
+    }
 
-    // aby uzyskać dane o tym co gdzie jest używamy cudownego:
-    console.log(Data);
+    const { screen, resolution, processor, ram, camera, zoom, cell } =
+    phone;
 
 
     return (
     <>
-        <Location location='phones' name={name} />
+        <Location location='phones' name={phone.name} />
         <Back />
         <div className="flex flex-col py-4 md:w-400 lg:w-600">
         <div className="font-bold text-2xl mb-5">
-            {name}
+            {phone.name}
         </div>
         <hr className="border-t-2" />
         <div className="mt-10 mb-5">
