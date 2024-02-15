@@ -12,15 +12,13 @@ export default async function Tablets() {
       .collection<Product>("products")
       .find({ category: "tablets" })
       .toArray();
-  
-  const serialized = JSON.parse(JSON.stringify(tablets)) as Product[];
 
   return (
     <>
       <Location location='tablets' />
       <Suspense>
         <Pagination>
-          {serialized.map(item => (
+          {tablets.map(item => (
             <Card
               key={item.id}
               product={item}
