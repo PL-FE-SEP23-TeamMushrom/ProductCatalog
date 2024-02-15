@@ -1,3 +1,4 @@
+import Location from "@/components/Location/Location";
 import Pagination from "@/components/Pagination/Pagination";
 import Card from "@/components/ProductCard/ProductCard";
 import connectToDatabase from "@/lib/connect";
@@ -16,6 +17,7 @@ export default async function Accesories() {
 
   return (
     <>
+      <Location location='accessories' />
       <Suspense>
         <Pagination>
           {serialized.map(item => (
