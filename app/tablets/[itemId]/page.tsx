@@ -1,4 +1,5 @@
 
+import Location from "@/components/Location/Location";
 import connectToDatabase from "@/lib/connect";
 import { TechSpec } from "@/lib/types/techSpec";
 
@@ -14,7 +15,10 @@ const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
     // console.log(Data);
 
     return (
-        <div className="flex flex-col p-4 sm:mx-8 md:mx-16 lg:mx-24 md:w-400 lg:w-600">
+    <>
+        <Location location='tablets' name={Data?.id} />
+        <div className="flex flex-col py-4 md:w-400 lg:w-600">
+            
         <div className="font-bold text-2xl mb-5">
             <h1>{Data?.id}</h1>
         </div>
@@ -54,6 +58,7 @@ const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
             </div>
         </div>
         </div>
+        </>
     );
     };
 

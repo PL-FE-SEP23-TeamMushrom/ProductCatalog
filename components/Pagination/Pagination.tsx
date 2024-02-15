@@ -37,7 +37,7 @@ export default function Pagination({ children }: PaginationProps) {
   return (
     <>
       <div className="flex justify-center">
-        <div className="grid xxl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-4 p-4">
+        <div className="grid xxl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-4 py-4">
           {paginatedChildren.map((child, index) => (
             <div key={index}>{child}</div>
           ))}

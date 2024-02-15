@@ -27,7 +27,9 @@ export default function RootLayout({
       <body className={mont.className}>
         <Navbar />
         {/* <Cart /> */}
-        {children}
+        <main className="sm:mx-8 md:mx-16 lg:mx-24">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
