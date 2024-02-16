@@ -4,7 +4,7 @@ import ArrowUp from "@/public/icons/ArrowUp.svg";
 
 export default function Footer() {
     return (
-        <div className="footer flex flex-row items-center border-t border-elements-color pt-8">
+        <div className="footer flex flex-row items-center border-t border-elements-color pt-8 mt-20">
                 <div className="basis-1/3">
                     <Image src={Logo} alt="logo" objectFit="contain" />
                 </div>
