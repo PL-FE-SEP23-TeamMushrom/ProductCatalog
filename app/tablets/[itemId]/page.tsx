@@ -1,22 +1,27 @@
 
+import Location from "@/components/Location/Location";
 import connectToDatabase from "@/lib/connect";
 import { TechSpec } from "@/lib/types/techSpec";
+import getOne from "@/utils/getOne";
 
 const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
 
-    const db = await connectToDatabase();
-    const Data = await db.collection<TechSpec>("tablets").findOne({ id: params.itemId });
+    const tablet = await getOne("tablets", params.itemId)
+
+    if (!tablet) {
+        return null;
+    }
+
     const { screen, resolution, processor, ram, camera, zoom, cell } =
-        Data as TechSpec;
-
-
-    // aby uzyskać dane o tym co gdzie jest używamy cudownego:
-    // console.log(Data);
+    tablet;
 
     return (
-        <div className="flex flex-col p-4 sm:mx-8 md:mx-16 lg:mx-24 md:w-400 lg:w-600">
+    <>
+        <Location location='tablets' name={tablet.name} />
+        <div className="flex flex-col py-4 md:w-400 lg:w-600">
+            
         <div className="font-bold text-2xl mb-5">
-            <h1>{Data?.id}</h1>
+            <h1>{tablet.name}</h1>
         </div>
         <hr className="border-t-2" />
         <div className="mt-10 mb-5">
@@ -54,6 +59,7 @@ const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
             </div>
         </div>
         </div>
+        </>
     );
     };
 

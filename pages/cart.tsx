@@ -24,7 +24,7 @@ export default function CartPage() {
     return (
       <>
         <Navbar />
-        <Cart />
+        {/* <Cart /> */}
         <Footer />
         </>
     );
