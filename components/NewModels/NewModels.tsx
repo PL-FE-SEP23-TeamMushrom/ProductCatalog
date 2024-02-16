@@ -49,7 +49,7 @@ const NewModels: React.FC<NewModelProps> = ({ newModels }) => {
       </div>
       <div className="flex items-center gap-4">
         {newModels.slice(startIndex, startIndex + 4).map((newModel) => (
-          <Card key={newModel.id} product={newModel} />
+          <Card key={newModel.id} product={newModel} path={'phones'} />
         ))}
       </div>
     </div>

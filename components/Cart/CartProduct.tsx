@@ -44,7 +44,7 @@ export const CartProduct: React.FC<Props> =({key,name,price,quantity,changeQuant
                 </button>
             </div>
             <div className="w-20 flex justify-end ml-6">
-                <p className="price text-22px font-extrabold">`${price}`</p>
+                <p className="price text-22px font-extrabold">${price}</p>
             </div>
         </div>
         </div>

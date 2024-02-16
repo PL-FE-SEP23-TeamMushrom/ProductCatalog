@@ -7,12 +7,14 @@ import Link from "next/link";
 
 interface PaginationProps {
   children: ReactNode;
+  grid?: boolean
 }
 
-export default function Pagination({ children }: PaginationProps) {
+export default function Pagination({ children, grid = true }: PaginationProps) {
   const searchParams = useSearchParams()
   
   const [currentPage, setCurrentPage] = useState<number>(+(searchParams?.get('page') || 1));
+
   const itemsPerPage = 16;
   const childrenArray = React.Children.toArray(children);
   const totalPages = Math.ceil(childrenArray.length / itemsPerPage);
