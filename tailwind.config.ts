@@ -27,6 +27,7 @@ const config: Config = {
         "600": "600px",
         "1100": "1100px",
         "1150": "1150px",
+        "1200": "1200px",
         cartImage: "66px",
       },
       height: {
@@ -65,6 +66,8 @@ const config: Config = {
       },
       screens: {
         xs: "475px",
+        "max-lg": { max: "1259px" },
+        mdp: "1260px",
         desktop: "1200px",
         tablet: "640px",
       },
