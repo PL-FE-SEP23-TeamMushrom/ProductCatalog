@@ -3,28 +3,19 @@ import localFont from 'next/font/local';
 import "@/app/globals.css";
 import Footer from "@/components/Footer/Footer";
 import BurgerMenu from "@/components/BurgerMenu/BurgerMenu";
-import Cart from "@/components/Cart/Cart";
+import {Cart} from "@/components/Cart/Cart";
 import Navbar from "@/components/Navbar/Navbar";
 import Pagination from "@/components/Pagination/Pagination";
+import getProductById from "@/utils/getProductById";
+import getAll from "@/utils/getAll";
 
-const inter = Inter({ subsets: ["latin"] });
-const mont = localFont({ src: [
-    {
-      path: '../public/fonts/Mont.otf',
-      weight: '600',
-    },
-    {
-      path: '../public/fonts/Mont.otf',
-      weight: '800',
-    },
-  ],
-});
+export default async function CartPage() {
+  const data =await getAll();
 
-export default function CartPage() {
     return (
       <>
         <Navbar />
-        {/* <Cart /> */}
+        <Cart productsFromServer={data}/>
         <Footer />
         </>
     );

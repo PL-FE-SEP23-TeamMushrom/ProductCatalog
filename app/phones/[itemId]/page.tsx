@@ -5,6 +5,7 @@ import getOne from "@/utils/getOne";
 
 const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
 
+    console.log("test");
     const phone = await getOne("phones", params.itemId)
 
     if (!phone) {
