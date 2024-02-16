@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Heart from "@/public/icons/Heart.svg";
 import Link from "next/link";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 interface CardProps {
   product: Product,
@@ -12,11 +13,16 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ product, path }) => {
   let pathname = usePathname()
   let { itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
+  const storage = useLocalStorage('cart');
   image = '/' + image;
 
   if (path) {
     pathname += path;
   }
+
+  const handleButtonClick = () => {
+    storage.addItem(itemId);
+};
 
 
 
@@ -46,7 +52,7 @@ const Card: React.FC<CardProps> = ({ product, path }) => {
         </div>
       </Link>
       <div className="mt-4 flex justify-between w-208">
-        <button className="bg-gray-700 w-160 h-40 text-white">
+        <button className="bg-gray-700 w-160 h-40 text-white" onClick={handleButtonClick}>
           Add to cart
         </button>
         <button className="w-40 h-40 border-2 flex justify-center items-center">
