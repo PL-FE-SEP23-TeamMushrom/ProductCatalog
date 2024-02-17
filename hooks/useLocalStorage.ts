@@ -1,7 +1,11 @@
+
 const useLocalStorage = ((key: string) => {
+    if (typeof window === 'undefined') {
+        return
+      }
     const getItem = () => JSON.parse(localStorage.getItem(key) || "[]");
     const setItem = (itemValue: Record<string, number>[]) => localStorage.setItem(key, JSON.stringify(itemValue));
-    const addItem = (itemName: string) => {
+    const addItemToCart = (itemName: string) => {
         const storedItems: Record<string, number>[] = getItem();
 
         const itemIndex = storedItems.findIndex(item => Object.keys(item)[0] === itemName);
@@ -20,12 +24,12 @@ const useLocalStorage = ((key: string) => {
         setItem(storedItems);
     };
 
-    const reduceItem = (itemName: string) => {
+    const reduceItemFromCart = (itemName: string) => {
         const storedItems: Record<string, number>[] = getItem();
         const itemIndex = storedItems.findIndex(item => Object.keys(item)[0] === itemName);
 
         if (itemIndex !== -1) {
-            if (storedItems[itemIndex][itemName] === 1) {
+            if (storedItems[itemIndex][itemName] <= 1) {
                 // If the item exists and its quantity is 1, remove it from the list
                 storedItems.splice(itemIndex, 1);
             } else {
@@ -37,7 +41,7 @@ const useLocalStorage = ((key: string) => {
         }
     };
 
-    return {getItem, setItem, addItem, reduceItem};
+    return {getItem, setItem, addItemToCart, reduceItemFromCart};
 })
 
 export default useLocalStorage

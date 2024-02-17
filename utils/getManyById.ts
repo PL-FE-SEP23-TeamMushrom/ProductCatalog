@@ -7,8 +7,6 @@ export default async function getManyWithId( array: Array<Record<string, number>
         return Object.keys(item)[0]
     })
 
-    console.log(changedToArray)
-
     const result = await db
         .collection<Product>("products")
         .find({
