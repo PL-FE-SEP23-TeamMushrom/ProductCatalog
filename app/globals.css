@@ -16,6 +16,10 @@
     margin-top: 140px;
 }
 
+.baner-whole {
+    padding-left: 10px;
+}
+
 .in-baner {
     background-color: #222222;
     height: 370px;
@@ -40,6 +44,23 @@
 .category-image {
     /* width: 288px */
 }
+
+.baner-container {
+    width: 100%;
+    /* outline: solid 1px red; */
+    display: flex;
+    justify-content: center;
+}
+
+.baner-wrap {
+    width: 48.5vw;
+    /* outline: solid 1px blue; */
+}
+
+.carousel {
+    width: 48.5vw;
+}
+
 @media screen and (min-width: 640px) {
     .category-image {
         /* width: 187px */
