@@ -90,14 +90,19 @@ const config: Config = {
         xs: "475px",
         "max-lg": { max: "1259px" },
         mdp: "1260px",
-        desktop: "1200px",
         tablet: "640px",
+        desktop: "1200px",
       },
       gridColumn: {
         "span-16": "span 16 / span 16",
+        "span-7": "span 7 / span 7",
+        "span-12": "span 12 / span 12",
+        "span-11": "span 11 / span 11",
+        "span-5": "span 5 / span 5",
       },
       gridColumnStart: {
         "17": "17",
+        "14": "14"
       },
       lineHeight: {
         "21": "21px",

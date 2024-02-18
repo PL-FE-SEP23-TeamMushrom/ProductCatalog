@@ -23,15 +23,34 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
     return (
     <>
         <Location location='phones' name={phone.name} />
-        <BuyingSection item={phone}/>
         <Back />
-        <About />
-        <TechSpecs />
-        <div className="flex flex-col py-4 md:w-400 lg:w-600">
-        <div className="font-bold text-2xl mb-5">
+        <div className="font-bold text-2xl mb-10 mt-4">
             {phone.name}
         </div>
-        <hr className="border-t-2" />
+        <div className="grid desktop:grid-cols-desktop
+        tablet:grid-cols-tablet 
+        mobile:grid-cols-mobile
+        gap-gap">
+            <div className="desktop:col-span-12 tablet:col-span-7 mobile:col-span-full">
+                <BuyingSection item={phone}/>
+            </div>
+            <div className="desktop:col-span-7 tablet:col-span-5 mobile:col-span-full">
+                <BuyingSection item={phone}/>
+            </div>
+        </div>
+        <div className="grid desktop:grid-cols-desktop 
+        tablet:grid-cols-tablet 
+        mobile:grid-cols-mobile
+        gap-gap">
+            <div className="desktop:col-span-12 tablet:col-span-full mobile:col-span-full">
+            <About />
+            </div>
+            <div className="desktop:col-span-11 desktop:col-start-14 tablet:col-span-full mobile:col-span-full">
+            <TechSpecs />
+            </div>
+        </div>
+        {/* <div className="flex flex-col py-4 md:w-400 lg:w-600"> */}
+        {/* <hr className="border-t-2" />
         <div className="mt-10 mb-5">
             <div className="flex justify-between">
             <div className="text-gray-400">Screen</div>
@@ -65,8 +84,8 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
             <div className="text-gray-400">Cell</div>
             <div className="text-gray-700">{cell.slice(0, 3).join(", ")}</div>
             </div>
-        </div>
-        </div>
+        </div> */}
+        {/* </div> */}
         </>
     );
     };
