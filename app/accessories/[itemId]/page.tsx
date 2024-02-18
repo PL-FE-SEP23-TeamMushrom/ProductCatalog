@@ -1,8 +1,12 @@
 
+import Back from "@/components/Back/Back";
 import Location from "@/components/Location/Location";
+import About from "@/components/About/About";
+import TechSpecs from "@/components/TechSpecs/TechSpecs";
 import getOne from "@/utils/getOne";
+import { BuyingSection } from "@/components/BuyingSection/BuyingSection";
 
-const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
+const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
 
     const accessory = await getOne("accessories", params.itemId)
 
@@ -15,7 +19,34 @@ const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
 
     return (
     <>
-        <Location location='accessories' name={accessory?.name} />
+    <Location location='accessories' name={accessory.name} />
+    <Back />
+    <div className="font-bold text-2xl mb-10 mt-4">
+        {accessory.name}
+    </div>
+    <div className="grid desktop:grid-cols-desktop
+    tablet:grid-cols-tablet 
+    mobile:grid-cols-mobile
+    gap-gap">
+        <div className="desktop:col-span-12 tablet:col-span-7 mobile:col-span-full">
+            <BuyingSection item={JSON.parse(JSON.stringify(accessory))}/>
+        </div>
+        <div className="desktop:col-span-7 tablet:col-span-5 mobile:col-span-full">
+            <BuyingSection item={JSON.parse(JSON.stringify(accessory))}/>
+        </div>
+    </div>
+    <div className="grid desktop:grid-cols-desktop 
+    tablet:grid-cols-tablet 
+    mobile:grid-cols-mobile
+    gap-gap">
+        <div className="desktop:col-span-12 tablet:col-span-full mobile:col-span-full">
+        <About />
+        </div>
+        <div className="desktop:col-span-11 desktop:col-start-14 tablet:col-span-full mobile:col-span-full">
+        <TechSpecs />
+        </div>
+    </div>
+        {/* <Location location='accessories' name={accessory?.name} />
         <div className="flex flex-col py-4 md:w-400 lg:w-600">
             
         <div className="font-bold text-2xl mb-5">
@@ -56,9 +87,9 @@ const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
             <div className="text-gray-700">{cell.slice(0, 3).join(", ")}</div>
             </div>
         </div>
-        </div>
+        </div> */}
         </>
     );
     };
 
-    export default TechSpecs;
+    export default DetailsPage;
