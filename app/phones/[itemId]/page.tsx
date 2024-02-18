@@ -11,8 +11,6 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
 
     const phone = await getOne("phones", params.itemId);
 
-    console.log(phone);
-
     if (!phone) {
         return null;
     }
@@ -32,10 +30,10 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
         mobile:grid-cols-mobile
         gap-gap">
             <div className="desktop:col-span-12 tablet:col-span-7 mobile:col-span-full">
-                <BuyingSection item={phone}/>
+                <BuyingSection item={JSON.parse(JSON.stringify(phone))}/>
             </div>
             <div className="desktop:col-span-7 tablet:col-span-5 mobile:col-span-full">
-                <BuyingSection item={phone}/>
+                <BuyingSection item={JSON.parse(JSON.stringify(phone))}/>
             </div>
         </div>
         <div className="grid desktop:grid-cols-desktop 
