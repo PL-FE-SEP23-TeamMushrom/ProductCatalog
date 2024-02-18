@@ -1,17 +1,21 @@
 
 import Back from "@/components/Back/Back";
 import Location from "@/components/Location/Location";
+import About from "@/components/About/About";
+import TechSpecs from "@/components/TechSpecs/TechSpecs";
 import getOne from "@/utils/getOne";
+import getProductById from "@/utils/getProductById";
+import { BuyingSection } from "@/components/BuyingSection/BuyingSection";
 
-const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
+const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
 
-    console.log("test");
-    const phone = await getOne("phones", params.itemId)
+    const phone = await getOne("phones", params.itemId);
+
+    console.log(phone);
 
     if (!phone) {
         return null;
     }
-
     const { screen, resolution, processor, ram, camera, zoom, cell } =
     phone;
 
@@ -19,7 +23,10 @@ const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
     return (
     <>
         <Location location='phones' name={phone.name} />
+        <BuyingSection item={phone}/>
         <Back />
+        <About />
+        <TechSpecs />
         <div className="flex flex-col py-4 md:w-400 lg:w-600">
         <div className="font-bold text-2xl mb-5">
             {phone.name}
@@ -64,4 +71,4 @@ const TechSpecs = async ({ params }: { params: { itemId: string } }) => {
     );
     };
 
-    export default TechSpecs;
+    export default DetailsPage;

@@ -11,7 +11,6 @@ import getAll from "@/utils/getAll";
 
 export default async function CartPage() {
   const data =await getAll();
-
     return (
       <>
         <Navbar />
