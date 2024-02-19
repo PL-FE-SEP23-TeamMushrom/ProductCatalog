@@ -70,7 +70,7 @@
   background-color: black;
 }
 
-@media (max-width: 522px) {
+@media (max-width: 640px) {
   .normalLink,
   .normalimage {
     display: none;

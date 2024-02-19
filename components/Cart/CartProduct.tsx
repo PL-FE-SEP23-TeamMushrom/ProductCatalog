@@ -42,24 +42,35 @@ export const CartProduct: React.FC<Props> =({index, product, quantity, setCart})
 
         storage?.reduceItemFromCart(product?.itemId as string);
     };
+
+    const handleDeleteClick = () => {
+        setCart(prev => {
+            const arr = [...prev];
+            arr.splice(index, 1);
+            
+            return arr;
+        });
+
+        storage?.removeItemFromCart(product?.itemId as string);
+    };
     
     
 
     return (
-        <div className="product flex flex-col desktop:flex-row tablet:flex-row tablet:items-center border border-1 desktop:col-span-16 tablet:col-span-full mobile:col-span-full">
+        <div className="product flex flex-col desktop:flex-row tablet:flex-row tablet:items-center border border-1 desktop:col-span-16 tablet:col-span-full mobile:col-span-full justify-between">
         <div className="flex flex-row items-center">
             <div className="close flex justify-center items-center">
                 <button className="closeButton justify-center items-center w-4 h-4 mx-6"
                 >
-                    <Image src={Union} alt="close" width={9} />
+                    <Image src={Union} alt="close" width={9} onClick={handleDeleteClick} />
                 </button>
             </div>
             <div className="productImage relative w-20 h-20 flex justify-center items-center ">
                     <Image src={phoneimage} alt="iphone" height={66} width={50} />
             </div>
-            <p className="w-336 text-sm font-semibold leading-21 mx-6">{product?.name}</p>
+            <p className="w-auto text-sm font-semibold leading-21 mx-6">{product?.name}</p>
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center mr-5">
             <div className="counter flex flex-row">
                 <button className="ml-4 tablet:ml-0 border border-1 w-8 h-8 flex justify-center items-center border-icon-color" 
                 onClick={handleMinusClick}>
