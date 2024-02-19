@@ -42,7 +42,16 @@ const useLocalStorage = ((key: string) => {
         }
     };
 
-    return {getItem, setItem, addItemToCart, reduceItemFromCart};
+    const removeItemFromCart = (itemName: string) => {
+        const storedItems: Record<string, number>[] = getItem();
+        const itemIndex = storedItems.findIndex(item => Object.keys(item)[0] === itemName);
+
+        storedItems.splice(itemIndex, 1);
+
+        setItem(storedItems);
+    }
+
+    return {getItem, setItem, addItemToCart, reduceItemFromCart, removeItemFromCart};
 })
 
 export default useLocalStorage
