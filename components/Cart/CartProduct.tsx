@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import Image from "next/image";
 import Union from "@/public/icons/Union.svg";
 import Minus from "@/public/icons/Minus.svg";
@@ -6,24 +6,44 @@ import Plus from "@/public/icons/Plus.svg";
 import useLocalStorage from '@/hooks/useLocalStorage';
 
 type Props = {
-        key: string,
-        product: Product,
-        quantity: number,
+    index: number,
+    product: Product,
+    quantity: number,
+    setCart: Dispatch<SetStateAction<{
+        product: Product;
+        quantity: number;
+    }[]>>
 };
 
-export const CartProduct: React.FC<Props> =({product, quantity}) => {
+export const CartProduct: React.FC<Props> =({index, product, quantity, setCart}) => {
 
     const storage = useLocalStorage('cart');
     
     const phoneimage = '/' + product?.image
-    
+
     const handleAddClick = () => {
+        setCart(prev => {
+            const arr = [...prev]
+            arr[index] = {...arr[index], quantity: arr[index].quantity + 1}
+          
+          return arr 
+          })
+
         storage?.addItemToCart(product?.itemId as string);
     };
-
+    
     const handleMinusClick = () => {
+        setCart(prev => {
+            const arr = [...prev]
+            arr[index] = {...arr[index], quantity: arr[index].quantity - 1}
+          
+          return arr 
+          })
+
         storage?.reduceItemFromCart(product?.itemId as string);
     };
+    
+    
 
     return (
         <div className="product flex flex-col desktop:flex-row tablet:flex-row tablet:items-center border border-1 desktop:col-span-16 tablet:col-span-full mobile:col-span-full">
