@@ -12,9 +12,10 @@ interface CartItem {
 
 export default function Cart() {
   const [cart, setCart] = useState<{ product: Product, quantity: number }[]>([]);
-  // const [productsInfo, setProductsInfo] = useState<Product[]>([]);
   const productsArray: CartItem[] = useLocalStorage('cart')?.getItem();
   const stringifiedProducts = JSON.stringify(productsArray)
+  const [totalCost, setTotalCost] = useState<number>(0);
+  const [totalCount, setTotalCount] = useState<number>(0);
 
   const fetchData = useCallback(async() => {
     try {
@@ -22,7 +23,6 @@ export default function Cart() {
       console.log(response)
       if (response.ok) {
         const responseData = await response.json();
-        // setProductsInfo(); // Updated to set the state directly with the fetched data
         merger(responseData.res)
       } else {
         console.error('Failed to fetch data:', response.statusText);
@@ -37,20 +37,6 @@ export default function Cart() {
 
   }, [fetchData]);
 
-  // useEffect(() => {
-  //   const mergingData = productsArray.map((item) => {
-  //     const itemId = Object.keys(item)[0];
-  //     const quantity = item[itemId];
-  //     const productData = productsInfo.find((el) => el.itemId === itemId);
-  //     return { product: productData as Product, quantity };
-  //   });
-
-  //   console.log(mergingData);
-
-  //   // Set the state with the transformed data
-  //   setCart(mergingData);
-
-  // }, [productsInfo]);
 
   function merger(productsInfo: Product[]) {
     const mergingData = productsArray.map((item) => {
@@ -62,6 +48,23 @@ export default function Cart() {
 
     setCart(mergingData)
   }
+
+  useEffect(() => {
+
+    const total = cart.reduce((acc, cartItem) => {
+      const subtotal = cartItem.product.price * cartItem.quantity;
+      return acc + subtotal;
+  }, 0);
+
+    setTotalCost(total)
+
+    const count = cart.reduce((acc, cartItem) => {
+      return acc + cartItem.quantity;
+  }, 0);
+
+    setTotalCount(count)
+
+  }, [cart]);
 
 
 
@@ -84,8 +87,8 @@ export default function Cart() {
                     setCart={setCart}/>
                 )})};
                     <div className="summary flex flex-col flex desktop:justify-center items-center tablet: content-start border border-1 desktop:col-start-17 desktop:row-start-1 tablet:col-span-full tablet:h-192 tablet:pt-6 desktop:pt-0 tablet:mt-4 desktop:mt-0 mobile:col-span-full">
-                        {/* <p className="total text-2xl font-extrabold leading-41 desktop:mt-23">${totalCost}</p>
-                        <p className="totalItems text-sm font-medium leading-21">Total for {totalCount} items</p> */}
+                        <p className="total text-2xl font-extrabold leading-41 desktop:mt-23">${totalCost}</p>
+                        <p className="totalItems text-sm font-medium leading-21">Total for {totalCount} items</p>
                         <div className="h-96 mt-25 border border-transparent border-t-elements-color flex justify-center items-center">
                             <button className="text-sm desktop:w-320 tablet:w-544 leading-21 font-bold w-320 h-48 checkoutButton bg-black text-white">Checkout</button>
                         </div>
