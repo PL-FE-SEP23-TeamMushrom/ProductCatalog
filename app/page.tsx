@@ -1,6 +1,6 @@
 import connectToDatabase from "@/lib/connect"
-import Slider from "./slider/page"
-import CategoryShop from "./category-shop/page"
+import Slider from "@/components/Slider/Slider"
+import CategoryShop from "@/components/Category-shop/Category-shop"
 import NewModels from "@/components/NewModels/NewModels"
 import HotPrices from "@/components/HotPrices/HotPrices"
 

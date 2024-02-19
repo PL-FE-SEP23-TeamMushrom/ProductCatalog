@@ -1,16 +1,14 @@
-"use client"
-
 import Image from "next/image"
 import { StaticImport } from "next/dist/shared/lib/get-img-props"
 
-interface props {
+interface Params {
     banerImage: string | StaticImport
     caption1: string
     caption2: string
 }
 
-export default function Baner(props: props) {
-    const { banerImage, caption1, caption2 } = props
+const Baner = ({ params }: { params: Params }) => {
+    const { banerImage, caption1, caption2 } = params
 
     return <div>
         <div className="flex justify-center baner-wrapper max-content baner-whole">
@@ -30,3 +28,5 @@ export default function Baner(props: props) {
         </div>
     </div>
 }
+
+export default Baner
