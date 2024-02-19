@@ -74,13 +74,18 @@ const Navbar = () => {
             <span className={`${styles.bar} ${styles.bar2}`}></span>
             <span className={`${styles.bar} ${styles.bar3}`}></span>
           </div>
-          <Image
-            className={`${styles.normalimage} `}
-            width={20}
-            height={20}
-            src={"/icons/Heart.svg"}
-            alt="cart image"
-          />
+          <Link
+            href={"/favourites"}
+            className="flex items-center h-full border-x border-gray-300"
+          >
+            <Image
+              className={`${styles.normalimage} `}
+              width={20}
+              height={20}
+              src={"/icons/Heart.svg"}
+              alt="favourites image"
+            />
+          </Link>
           <Link
             href={"/cart"}
             className="flex items-center h-full border-x border-gray-300"
