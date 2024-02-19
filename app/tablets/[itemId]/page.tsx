@@ -6,6 +6,7 @@ import TechSpecs from "@/components/TechSpecs/TechSpecs";
 import connectToDatabase from "@/lib/connect";
 import getOne from "@/utils/getOne";
 import { BuyingSection } from "@/components/BuyingSection/BuyingSection";
+import { Gallery } from "@/components/Gallery/Gallery";
 
 const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
 
@@ -29,9 +30,9 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
     tablet:grid-cols-tablet 
     mobile:grid-cols-mobile
     gap-gap">
-        <div className="desktop:col-span-12 tablet:col-span-7 mobile:col-span-full">
-            <BuyingSection item={JSON.parse(JSON.stringify(tablet))}/>
-        </div>
+            <div className="desktop:col-span-12 tablet:col-span-7 mobile:col-span-full">
+                <Gallery images={tablet.images}/>
+            </div>
         <div className="desktop:col-span-7 tablet:col-span-5 mobile:col-span-full">
             <BuyingSection item={JSON.parse(JSON.stringify(tablet))}/>
         </div>
