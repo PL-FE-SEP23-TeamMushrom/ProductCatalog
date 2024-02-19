@@ -3,6 +3,7 @@ const useLocalStorage = ((key: string) => {
     if (typeof window === 'undefined') {
         return
       }
+      
     const getItem = () => JSON.parse(localStorage.getItem(key) || "[]");
     const setItem = (itemValue: Record<string, number>[]) => localStorage.setItem(key, JSON.stringify(itemValue));
     const addItemToCart = (itemName: string) => {

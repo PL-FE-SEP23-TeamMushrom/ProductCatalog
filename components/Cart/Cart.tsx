@@ -14,7 +14,7 @@ interface CartItem {
 
 
 export default function Cart() {
-  const [cart, setCart] = useState<{product:Product | undefined,quantity:number}[]>([]);
+  const [cart, setCart] = useState<{product:Product, quantity:number}[]>([]);
   const [productsInfo, setProductsInfo] = useState<Product[]>([]);
   const productsArray: CartItem[] = (useLocalStorage('cart')?.getItem());
 
@@ -46,7 +46,7 @@ export default function Cart() {
         const itemId = Object.keys(item)[0];
         const quantity = item[itemId];
         const productData = productsInfo.find((el) => el.itemId === itemId);
-        return { product: productData, quantity };
+        return { product: productData as Product, quantity };
     });
 
     console.log(mergingData);
@@ -70,8 +70,7 @@ export default function Cart() {
                 {cart.map(p=> {return(
                     <CartProduct 
                     key={p.product?.id}
-                    name={p.product?.name} 
-                    price={p.product?.price}
+                    product={p.product} 
                     quantity={p.quantity}/>
                 )})};
                     <div className="summary flex flex-col flex desktop:justify-center items-center tablet: content-start border border-1 desktop:col-start-17 desktop:row-start-1 tablet:col-span-full tablet:h-192 tablet:pt-6 desktop:pt-0 tablet:mt-4 desktop:mt-0 mobile:col-span-full">
