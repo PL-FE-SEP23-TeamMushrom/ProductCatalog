@@ -7,18 +7,13 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 
 interface CardProps {
   product: Product,
-  path?: string,
 }
 
-const Card: React.FC<CardProps> = ({ product, path }) => {
+const Card: React.FC<CardProps> = ({ product }) => {
   let pathname = usePathname()
-  let { itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
+  let { category, itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
   const storage = useLocalStorage('cart');
   image = '/' + image;
-
-  if (path) {
-    pathname += path;
-  }
 
   const handleButtonClick = () => {
     storage?.addItemToCart(itemId);
@@ -28,7 +23,7 @@ const Card: React.FC<CardProps> = ({ product, path }) => {
 
   return (
     <div className="card w-272 h-506 flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg">
-      <Link key={itemId} href={`${pathname}/${itemId}`}>
+      <Link key={itemId} href={`${category}/${itemId}`}>
         <div className="w-208 h-196 mt-4 relative">
           <Image src={image} alt="iphone" layout="fill" objectFit="contain" />
         </div>
