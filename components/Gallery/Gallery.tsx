@@ -21,7 +21,7 @@ export const Gallery:React.FC<Props>= ({images})=> {
         tablet:grid-cols-tablet-gallery
         mobile:grid-cols-mobile
         gap-gap">
-            <div className="flex gap-2 tablet:flex-col desktop:flex-col mobile:flex-row desktop:col-span-2 tablet:col-span-1 mobile:col-span-full">
+            <div className="mobile:order-1 flex gap-2 tablet:flex-col desktop:flex-col mobile:flex-row desktop:col-span-2 tablet:col-span-1 mobile:col-span-full">
             {(images.map(im=>{return (
                 <GalleryPicture key={im} 
                 active={'/'+im===activeImage} image={'/'+im}
