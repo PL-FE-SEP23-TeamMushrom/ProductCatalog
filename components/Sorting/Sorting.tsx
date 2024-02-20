@@ -8,10 +8,10 @@ interface SortingProps {
 }
 
 const Sorting: React.FC<SortingProps> = ({ phones }) => {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [sortedPhones, setSortedPhones] = useState(phones);
   const [startIndex, setStartIndex] = useState(0);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(8);
   const [sortBy, setSortBy] = useState("newest");
 
   useEffect(() => {
@@ -84,7 +84,7 @@ const Sorting: React.FC<SortingProps> = ({ phones }) => {
             ))}
         </div>
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-8">
         {[...Array(totalPages)].map((_, pageIndex) => (
           <button
             key={pageIndex}
