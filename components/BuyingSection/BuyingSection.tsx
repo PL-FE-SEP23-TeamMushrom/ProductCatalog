@@ -42,7 +42,7 @@ return (
       </div>
       <div className="flex">
         {colorsAvailable.map(c=>{return(
-          <ColorSquare key={id} color={c} active={c==color} id={id} activeColor={color}/>
+          <ColorSquare key={c} color={c} active={c==color} id={id} activeColor={color}/>
         );})}
       </div>
       <hr className="border-t-2 my-6" />
@@ -51,7 +51,7 @@ return (
       </div>
       <div className="flex">
       {capacityAvailable.map(c=>{return(
-          <CapacityButton key={id} capacity={c} active={c==capacity} id={id} activeCapacity={capacity}/>
+          <CapacityButton key={c} capacity={c} active={c==capacity} id={id} activeCapacity={capacity}/>
         );})}
       </div>
       <hr className="border-t-2 my-6" />
