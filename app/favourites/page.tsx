@@ -3,6 +3,7 @@
 import Location from "@/components/Location/Location";
 import Pagination from "@/components/Pagination/Pagination";
 import Card from "@/components/ProductCard/ProductCard";
+import Sorting from "@/components/Sorting/Sorting";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { Suspense, useCallback, useEffect, useState } from "react";
 
@@ -31,8 +32,6 @@ export default function Favourites() {
 
   }, [fetchData]);
   
-  // const phones: Product[] = getMany("phones");
-  
   return (
     <>
       <Location location='phones' />
@@ -40,15 +39,7 @@ export default function Favourites() {
             Favourites
         </div>
       <Suspense>
-        <Pagination>
-          
-          {favorites.map(item => (
-            <Card
-              key={item.id}
-              product={item}
-            />
-          ))}
-        </Pagination>
+        <Sorting phones={favorites} />
       </Suspense>
     </>
   );
