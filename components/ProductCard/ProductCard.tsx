@@ -2,8 +2,10 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Heart from "@/public/icons/Heart.svg";
+import RedHeart from "@/public/icons/RedHeart.svg";
 import Link from "next/link";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import { useEffect, useState } from "react";
 
 interface CardProps {
   product: Product,
@@ -13,8 +15,17 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ product, path }) => {
   let pathname = usePathname()
   let { itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
+  const [faovrite, setFavotire] = useState<boolean>(false);
   const storage = useLocalStorage('cart');
+  const favorites = useLocalStorage('favorites');
   image = '/' + image;
+
+  useEffect(() => {
+    const check = favorites?.getItem();
+    if (check.includes(itemId)) {
+      setFavotire(true)
+    }
+  }, [])
 
   if (path) {
     pathname += path;
@@ -23,6 +34,16 @@ const Card: React.FC<CardProps> = ({ product, path }) => {
   const handleButtonClick = () => {
     storage?.addItemToCart(itemId);
 };
+
+  const handleWhiteHeartClick = () => {
+    favorites?.addFavoriteToStorage(itemId);
+    setFavotire(true)
+  } 
+
+  const handleRedHeartClick = () => {
+    favorites?.removeFavoriteFromStorage(itemId);
+    setFavotire(false)
+  } 
 
 
 
@@ -55,9 +76,19 @@ const Card: React.FC<CardProps> = ({ product, path }) => {
         <button className="bg-gray-700 w-160 h-40 text-white" onClick={handleButtonClick}>
           Add to cart
         </button>
-        <button className="w-40 h-40 border-2 flex justify-center items-center">
-          <Image src={Heart} alt="heart icon" />
-        </button>
+        {!faovrite &&
+          <button className="w-40 h-40 border-2 flex justify-center items-center"
+          onClick={handleWhiteHeartClick}>
+            <Image src={Heart} alt="heart icon" />
+          </button>
+        }
+        {faovrite &&
+          <button className="w-40 h-40 border-2 flex justify-center items-center"
+          onClick={handleRedHeartClick}>
+            <Image src={RedHeart} alt="heart icon" />
+          </button>
+        }
+        
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 
-const useLocalStorage = ((key: string) => {
+type Key = 'cart' | 'favorites'
+
+const useLocalStorage = ((key: Key) => {
     if (typeof window === 'undefined') {
         return
       }
@@ -12,12 +14,10 @@ const useLocalStorage = ((key: string) => {
         const itemIndex = storedItems.findIndex(item => Object.keys(item)[0] === itemName);
         
         if (itemIndex === -1) {
-            // If the item doesn't exist, add it to the array with a quantity of 1
             const newItem: Record<string, number> = {};
             newItem[itemName] = 1;
             storedItems.push(newItem);
         } else {
-            // If the item exists, increment its quantity by 1
             storedItems[itemIndex][itemName] = (storedItems[itemIndex][itemName] || 0) + 1;
         }
 
@@ -31,10 +31,8 @@ const useLocalStorage = ((key: string) => {
 
         if (itemIndex !== -1) {
             if (storedItems[itemIndex][itemName] <= 1) {
-                // If the item exists and its quantity is 1, remove it from the list
                 storedItems.splice(itemIndex, 1);
             } else {
-                // If the item exists and its quantity is more than 1, reduce its quantity by 1
                 storedItems[itemIndex][itemName] = (storedItems[itemIndex][itemName] || 0) - 1;
             }
 
@@ -51,30 +49,44 @@ const useLocalStorage = ((key: string) => {
         setItem(storedItems);
     }
 
-    return {getItem, setItem, addItemToCart, reduceItemFromCart, removeItemFromCart};
+    const addFavoriteToStorage = (itemName: string) => {
+        const storedItemsJSON = localStorage.getItem('favorites');
+        const storedItems = storedItemsJSON ? JSON.parse(storedItemsJSON) : [];
+    
+        const isItemInFavorites = storedItems.includes(itemName);
+    
+        if (!isItemInFavorites) {
+            storedItems.push(itemName);
+    
+            localStorage.setItem('favorites', JSON.stringify(storedItems));
+            console.log(`Added ${itemName} to favorites.`);
+        } else {
+            console.log(`${itemName} is already in favorites.`);
+        }
+
+        setItem(storedItems);
+    };
+
+    const removeFavoriteFromStorage = (itemName: string) => {
+        const storedItemsJSON = localStorage.getItem('favorites');
+        const storedItems = storedItemsJSON ? JSON.parse(storedItemsJSON) : [];
+    
+        const itemIndex = storedItems.indexOf(itemName);
+    
+        if (itemIndex !== -1) {
+            storedItems.splice(itemIndex, 1);
+    
+            localStorage.setItem('favorites', JSON.stringify(storedItems));
+            console.log(`Removed ${itemName} from favorites.`);
+        } else {
+            console.log(`${itemName} is not in favorites.`);
+        }
+    
+        setItem(storedItems);
+    };
+
+    return {getItem, setItem, addItemToCart, reduceItemFromCart, removeItemFromCart, addFavoriteToStorage, removeFavoriteFromStorage};
 })
 
 export default useLocalStorage
 
-
-// const setItem = (itemValue: string) => localStorage.setItem(key, JSON.stringify(itemValue));
-
-
-// import { useState, useEffect } from 'react';
-// function useLocalStorage(key: string, initialValue: []) {
-//   // Sprawdzanie, czy localStorage ma wartość przypisaną do danego klucza
-//   console.log(localStorage);
-//   const storedValue = localStorage.getItem(key);
-
-//   console.log(storedValue)
-//   // Parsowanie przechowywanej wartości lub ustawianie jej na initialValue
-//   const initial = storedValue ? JSON.parse(storedValue) : initialValue;
-//   // Użycie useState do zarządzania stanem
-//   const [value, setValue] = useState(initial);
-//   // Ustawianie wartości w localStorage za każdym razem, gdy wartość się zmienia
-//   useEffect(() => {
-//     localStorage.setItem(key, JSON.stringify(value));
-//   }, [key, value]);
-//   return [value, setValue];
-// }
-// export default useLocalStorage;

@@ -1,10 +1,11 @@
 
 import getManyWithId from "@/utils/getManyById";
+import getManyWithStringArray from "@/utils/getManyWithStringArray";
 import { NextRequest, NextResponse } from "next/server";
 
 export const dynamic = 'force-dynamic' // defaults to auto
 
-const testarray: Record<string, number>[] = [{"apple-iphone-7-plus-32gb-black": 3},{"apple-iphone-11-256gb-yellow": 1},{"apple-iphone-xs-64gb-spacegray": 2},{"apple-iphone-xr-64gb-red": 1}]
+const testarray: string[] = ["apple-iphone-7-plus-32gb-black", "apple-iphone-11-256gb-yellow", "apple-iphone-xs-64gb-spacegray", "apple-iphone-xr-64gb-red"]
 
 
 export async function GET(req: NextRequest) {
@@ -13,7 +14,8 @@ export async function GET(req: NextRequest) {
     const searchParams = req.nextUrl.searchParams;
     const foo = JSON.parse(searchParams.get('products') || "[]");
     
-    const res = await getManyWithId(foo);
+    const res = await getManyWithStringArray(foo);
    
     return Response.json({ res })
   }
+  // req: NextRequest
