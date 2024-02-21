@@ -17,7 +17,7 @@ type Props = {
 
 export const CartProduct: React.FC<Props> =({index, product, quantity, setCart}) => {
 
-    const storage = useLocalStorage('cart');
+    const storage = useLocalStorage('CART');
     
     const phoneimage = '/' + product?.image
 
