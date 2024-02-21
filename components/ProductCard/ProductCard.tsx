@@ -13,7 +13,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ product }) => {
   let pathname = usePathname()
-  let { itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
+  let { category, itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
   const [faovrite, setFavotire] = useState<boolean>(false);
   const storage = useLocalStorage("CART");
   const favorites = useLocalStorage("FAVORITES");
