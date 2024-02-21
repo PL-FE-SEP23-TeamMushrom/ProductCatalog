@@ -16,8 +16,8 @@ const Card: React.FC<CardProps> = ({ product, path }) => {
   let pathname = usePathname()
   let { itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
   const [faovrite, setFavotire] = useState<boolean>(false);
-  const storage = useLocalStorage('cart');
-  const favorites = useLocalStorage('favorites');
+  const storage = useLocalStorage("CART");
+  const favorites = useLocalStorage("FAVORITES");
   image = '/' + image;
 
   useEffect(() => {

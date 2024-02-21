@@ -1,9 +1,7 @@
 "use client"; 
 
 import useLocalStorage from '@/hooks/useLocalStorage';
-import Image from 'next/image';
 import { useState, useEffect, useRef, useCallback } from 'react';
-import ArrowLeftBlack from "@/public/icons/ArrowLeftBlack.svg";
 import {CartProduct} from "./CartProduct";
 import Back from '../Back/Back';
 
@@ -13,7 +11,7 @@ interface CartItem {
 
 export default function Cart() {
   const [cart, setCart] = useState<{ product: Product, quantity: number }[]>([]);
-  const productsArray: CartItem[] = useLocalStorage('cart')?.getItem();
+  const productsArray: CartItem[] = useLocalStorage('CART')?.getItem();
   const stringifiedProducts = JSON.stringify(productsArray)
   const [totalCost, setTotalCost] = useState<number>(0);
   const [totalCount, setTotalCount] = useState<number>(0);

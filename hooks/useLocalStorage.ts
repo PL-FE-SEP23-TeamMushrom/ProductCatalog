@@ -1,10 +1,15 @@
+import { LOCAL_STORAGE_KEYS } from "@/constants/localStorageKeys";
 
-type Key = 'cart' | 'favorites'
+type LocalStorageKeys = keyof typeof LOCAL_STORAGE_KEYS
 
-const useLocalStorage = ((key: Key) => {
+const useLocalStorage = ((key: LocalStorageKeys) => {
     if (typeof window === 'undefined') {
         return
       }
+
+    if (!Object.values(LOCAL_STORAGE_KEYS).includes(key)) {
+        throw new Error("Invalid local storage key");
+    }
       
     const getItem = () => JSON.parse(localStorage.getItem(key) || "[]");
     const setItem = (itemValue: Record<string, number>[]) => localStorage.setItem(key, JSON.stringify(itemValue));
@@ -21,7 +26,6 @@ const useLocalStorage = ((key: Key) => {
             storedItems[itemIndex][itemName] = (storedItems[itemIndex][itemName] || 0) + 1;
         }
 
-        console.log(storedItems);
         setItem(storedItems);
     };
 
@@ -50,7 +54,7 @@ const useLocalStorage = ((key: Key) => {
     }
 
     const addFavoriteToStorage = (itemName: string) => {
-        const storedItemsJSON = localStorage.getItem('favorites');
+        const storedItemsJSON = localStorage.getItem(LOCAL_STORAGE_KEYS.FAVORITES);
         const storedItems = storedItemsJSON ? JSON.parse(storedItemsJSON) : [];
     
         const isItemInFavorites = storedItems.includes(itemName);
@@ -58,17 +62,14 @@ const useLocalStorage = ((key: Key) => {
         if (!isItemInFavorites) {
             storedItems.push(itemName);
     
-            localStorage.setItem('favorites', JSON.stringify(storedItems));
-            console.log(`Added ${itemName} to favorites.`);
-        } else {
-            console.log(`${itemName} is already in favorites.`);
-        }
+            localStorage.setItem(LOCAL_STORAGE_KEYS.FAVORITES, JSON.stringify(storedItems));
+        } 
 
         setItem(storedItems);
     };
 
     const removeFavoriteFromStorage = (itemName: string) => {
-        const storedItemsJSON = localStorage.getItem('favorites');
+        const storedItemsJSON = localStorage.getItem(LOCAL_STORAGE_KEYS.FAVORITES);
         const storedItems = storedItemsJSON ? JSON.parse(storedItemsJSON) : [];
     
         const itemIndex = storedItems.indexOf(itemName);
@@ -76,11 +77,8 @@ const useLocalStorage = ((key: Key) => {
         if (itemIndex !== -1) {
             storedItems.splice(itemIndex, 1);
     
-            localStorage.setItem('favorites', JSON.stringify(storedItems));
-            console.log(`Removed ${itemName} from favorites.`);
-        } else {
-            console.log(`${itemName} is not in favorites.`);
-        }
+            localStorage.setItem(LOCAL_STORAGE_KEYS.FAVORITES, JSON.stringify(storedItems));
+        } 
     
         setItem(storedItems);
     };
