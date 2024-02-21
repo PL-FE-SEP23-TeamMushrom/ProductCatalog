@@ -1,4 +1,4 @@
-
+import connectToDatabase from "@/lib/connect"
 import Back from "@/components/Back/Back";
 import Location from "@/components/Location/Location";
 import About from "@/components/About/About";
@@ -7,6 +7,7 @@ import getOne from "@/utils/getOne";
 import getProductById from "@/utils/getProductById";
 import { BuyingSection } from "@/components/BuyingSection/BuyingSection";
 import { Gallery } from "@/components/Gallery/Gallery";
+import { Recommended } from "@/components/Recommended/Recommended";
 
 const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
 
@@ -19,6 +20,16 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
     const { screen, resolution, processor, ram, camera, zoom, cell } =
     phone;
 
+    const db = await connectToDatabase();
+    const phones = await db
+      .collection<Product>("products")
+      .find({ capacity: phone.capacity })
+      .toArray();
+    const serialized = JSON.parse(JSON.stringify(phones)) as Product[];
+    const recommended = await db.collection<Product>("products").find({}).toArray();
+    const recommendedSerialized = JSON.parse(
+      JSON.stringify(recommended)
+    ) as Product[];
 
     return (
     <>
@@ -49,6 +60,7 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
             <TechSpecs />
             </div>
         </div>
+        <Recommended recommended={recommendedSerialized} itemPrice={phone.priceDiscount} />
         {/* <div className="flex flex-col py-4 md:w-400 lg:w-600"> */}
         {/* <hr className="border-t-2" />
         <div className="mt-10 mb-5">

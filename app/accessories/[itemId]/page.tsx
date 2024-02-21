@@ -1,4 +1,4 @@
-
+import connectToDatabase from "@/lib/connect";
 import Back from "@/components/Back/Back";
 import Location from "@/components/Location/Location";
 import About from "@/components/About/About";
@@ -6,6 +6,7 @@ import TechSpecs from "@/components/TechSpecs/TechSpecs";
 import getOne from "@/utils/getOne";
 import { BuyingSection } from "@/components/BuyingSection/BuyingSection";
 import { Gallery } from "@/components/Gallery/Gallery";
+import { Recommended } from "@/components/Recommended/Recommended";
 
 const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
 
@@ -17,6 +18,17 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
 
     const { screen, resolution, processor, ram, camera, zoom, cell } =
     accessory;
+
+    const db = await connectToDatabase();
+    const accesories = await db
+      .collection<Product>("products")
+      .find({ capacity: accessory.capacity })
+      .toArray();
+    const serialized = JSON.parse(JSON.stringify(accesories)) as Product[];
+    const recommended = await db.collection<Product>("products").find({}).toArray();
+    const recommendedSerialized = JSON.parse(
+      JSON.stringify(recommended)
+    ) as Product[];
 
     return (
     <>
@@ -47,6 +59,7 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
         <TechSpecs />
         </div>
     </div>
+    <Recommended recommended={recommendedSerialized} itemPrice={accessory.priceDiscount} />
         {/* <Location location='accessories' name={accessory?.name} />
         <div className="flex flex-col py-4 md:w-400 lg:w-600">
             
