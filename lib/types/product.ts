@@ -1,5 +1,6 @@
 type Product = {
     id: number,
+    category: string,
     itemId: string,
     name: string,
     fullPrice: number,
