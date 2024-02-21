@@ -26,10 +26,6 @@ const Card: React.FC<CardProps> = ({ product }) => {
     }
   }, [])
 
-  if (path) {
-    pathname += path;
-  }
-
   const handleButtonClick = () => {
     storage?.addItemToCart(itemId);
 };
