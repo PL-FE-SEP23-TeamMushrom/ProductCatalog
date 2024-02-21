@@ -4,7 +4,6 @@ import Location from "@/components/Location/Location";
 import About from "@/components/About/About";
 import TechSpecs from "@/components/TechSpecs/TechSpecs";
 import getOne from "@/utils/getOne";
-import getProductById from "@/utils/getProductById";
 import { BuyingSection } from "@/components/BuyingSection/BuyingSection";
 import { Gallery } from "@/components/Gallery/Gallery";
 
@@ -12,7 +11,6 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
 
     const phone = await getOne("phones", params.itemId);
 
-    console.log(phone);
     if (!phone) {
         return null;
     }
