@@ -88,9 +88,6 @@ useEffect(() => {
             Add to cart
           </button>
           )}
-        <button className="w-40 h-40 border-2 flex justify-center items-center">
-          <Image src={Heart} alt="heart icon" />
-        </button>
 
         {!faovrite &&
           <button className="w-40 h-40 border-2 flex justify-center items-center"
