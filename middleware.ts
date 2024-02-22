@@ -1,14 +1,7 @@
 import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
-  publicRoutes: [
-    "/",
-    "/accessories",
-    "/cart",
-    "/favourites",
-    "/phones",
-    "/tablets",
-  ],
+  publicRoutes: ["((?!^/checkout/).*)"],
   ignoredRoutes: ["/api"],
 });
 
