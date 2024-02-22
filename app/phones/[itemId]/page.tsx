@@ -1,11 +1,16 @@
-
+import connectToDatabase from "@/lib/connect"
 import Back from "@/components/Back/Back";
 import Location from "@/components/Location/Location";
 import About from "@/components/About/About";
 import TechSpecs from "@/components/TechSpecs/TechSpecs";
 import getOne from "@/utils/getOne";
+
+import getProductById from "@/utils/getProductById";
+import getManySimilar from "@/utils/getManySimilar";
+
 import { BuyingSection } from "@/components/BuyingSection/BuyingSection";
 import { Gallery } from "@/components/Gallery/Gallery";
+import { Recommended } from "@/components/Recommended/Recommended";
 
 const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
 
@@ -14,9 +19,11 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
     if (!phone) {
         return null;
     }
-    const { screen, resolution, processor, ram, camera, zoom, cell } =
-    phone;
 
+    const recommended = await getManySimilar("phones",phone.capacity,phone.priceDiscount);
+    const recommendedSerialized = JSON.parse(
+      JSON.stringify(recommended)
+    ) as Product[];
 
     return (
     <>
@@ -47,6 +54,7 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
             <TechSpecs />
             </div>
         </div>
+        <Recommended recommended={recommendedSerialized} itemPrice={phone.priceDiscount} />
         {/* <div className="flex flex-col py-4 md:w-400 lg:w-600"> */}
         {/* <hr className="border-t-2" />
         <div className="mt-10 mb-5">
