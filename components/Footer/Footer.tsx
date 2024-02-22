@@ -3,8 +3,6 @@ import Logo from "@/public/ui-kit/Logo.webp";
 import ScrollToTopButton from "./ScrollToTopButton/ScrollToTopButton";
 
 export default function Footer() {
-
-
     return (
         <>
             <div className="footer flex-row justify-center items-center border-t border-elements-color pt-8 my-10 w-full hidden sm:flex">
