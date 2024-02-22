@@ -103,7 +103,7 @@ useEffect(() => {
         {faovrite &&
           <button className="w-40 h-40 border-2 flex justify-center items-center"
           onClick={handleRedHeartClick}>
-            <Image src={RedHeart} alt="heart icon" />
+            <Image src={RedHeart} alt="heart icon"/>
           </button>
         }
         
