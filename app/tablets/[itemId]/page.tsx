@@ -4,6 +4,7 @@ import Location from "@/components/Location/Location";
 import About from "@/components/About/About";
 import TechSpecs from "@/components/TechSpecs/TechSpecs";
 import getOne from "@/utils/getOne";
+import getManySimilar from "@/utils/getManySimilar";
 import { BuyingSection } from "@/components/BuyingSection/BuyingSection";
 import { Gallery } from "@/components/Gallery/Gallery";
 import { Recommended } from "@/components/Recommended/Recommended";
@@ -16,16 +17,7 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
         return null;
     }
 
-    const { screen, resolution, processor, ram, camera, zoom, cell } =
-    tablet;
-
-    const db = await connectToDatabase();
-    const phones = await db
-      .collection<Product>("products")
-      .find({ capacity: tablet.capacity })
-      .toArray();
-    const serialized = JSON.parse(JSON.stringify(phones)) as Product[];
-    const recommended = await db.collection<Product>("products").find({}).toArray();
+    const recommended = await getManySimilar("tablets",tablet.capacity,tablet.priceDiscount);
     const recommendedSerialized = JSON.parse(
       JSON.stringify(recommended)
     ) as Product[];
