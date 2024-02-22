@@ -1,11 +1,10 @@
-import connectToDatabase from "@/lib/connect"
+
 import Back from "@/components/Back/Back";
 import Location from "@/components/Location/Location";
 import About from "@/components/About/About";
 import TechSpecs from "@/components/TechSpecs/TechSpecs";
 import getOne from "@/utils/getOne";
 
-import getProductById from "@/utils/getProductById";
 import getManySimilar from "@/utils/getManySimilar";
 
 import { BuyingSection } from "@/components/BuyingSection/BuyingSection";
