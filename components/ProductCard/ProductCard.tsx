@@ -1,17 +1,18 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useState,useEffect } from "react";
 import Heart from "@/public/icons/Heart.svg";
 import RedHeart from "@/public/icons/RedHeart.svg";
 import Link from "next/link";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { useEffect, useState } from "react";
 
 interface CardProps {
   product: Product,
 }
 
 const Card: React.FC<CardProps> = ({ product }) => {
+  const [added,setAdded] = useState(false);
   let pathname = usePathname()
   let { category, itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
   const [faovrite, setFavotire] = useState<boolean>(false);
@@ -27,8 +28,18 @@ const Card: React.FC<CardProps> = ({ product }) => {
   }, [])
 
   const handleButtonClick = () => {
+    setAdded(true);
     storage?.addItemToCart(itemId);
 };
+
+
+useEffect(() => {
+  if (added) {
+    const timeout = setTimeout( () =>setAdded(false)
+    ,3000);
+
+  }
+}, [added]);
 
   const handleWhiteHeartClick = () => {
     favorites?.addFavoriteToStorage(itemId);
@@ -39,8 +50,6 @@ const Card: React.FC<CardProps> = ({ product }) => {
     favorites?.removeFavoriteFromStorage(itemId);
     setFavotire(false)
   } 
-
-
 
   return (
     <div className="card w-272 h-506 flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg">
@@ -68,9 +77,18 @@ const Card: React.FC<CardProps> = ({ product }) => {
         </div>
       </Link>
       <div className="mt-4 flex justify-between w-208">
-        <button className="bg-gray-700 w-160 h-40 text-white" onClick={handleButtonClick}>
-          Add to cart
+        {(added)? (
+        <button className="border w-160 h-40 text-green">
+          Added to cart
         </button>
+
+        ) 
+          :(
+            <button className="bg-gray-700 w-160 h-40 text-white" onClick={handleButtonClick}>
+            Add to cart
+          </button>
+          )}
+
         {!faovrite &&
           <button className="w-40 h-40 border-2 flex justify-center items-center"
           onClick={handleWhiteHeartClick}>

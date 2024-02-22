@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="w-full flex border-b justify-between">
+      <header id="top" className="w-full flex border-b justify-between">
         <div className="wrapper flex items-center">
           <Link href={"/"}>
             <Image
@@ -63,7 +63,7 @@ const Navbar = () => {
             <div>Accessories</div>
           </Link>
         </div>
-        <div className="flex items-center border-l border-gray-300">
+        <div className="flex items-center border-x border-gray-300">
           <div
             className={`${styles.hamburgermenu} ${
               isActive ? styles.active : ""
@@ -76,7 +76,7 @@ const Navbar = () => {
           </div>
           <Link
             href={"/favourites"}
-            className="flex items-center h-full border-x border-gray-300"
+            className="hidden items-center h-full border-x border-gray-300 sm:flex"
           >
             <Image
               className={`${styles.normalimage} `}
