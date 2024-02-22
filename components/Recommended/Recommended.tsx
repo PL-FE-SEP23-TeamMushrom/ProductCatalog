@@ -23,7 +23,7 @@ export const Recommended: React.FC<NewModelProps> = ({ recommended, itemPrice })
   };
 
   return (
-    <div className="mx-auto my-5 sm:w-full xs:px-5 sm:px-15 md:w-full lg:w-1100 xl:w-1150">
+    <div className="">
       <div className="flex justify-between">
         <h1 className="font-bold text-2xl">Recommended</h1>
         <div>
