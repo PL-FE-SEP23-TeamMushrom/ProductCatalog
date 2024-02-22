@@ -14,7 +14,7 @@ type Props = {
 }
 
 export const BuyingSection:React.FC<Props>= ({item})=> {
-  const storage = useLocalStorage('cart');
+  const storage = useLocalStorage("CART");
 
   const {
     id,

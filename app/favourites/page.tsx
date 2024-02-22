@@ -1,11 +1,33 @@
-import Location from "@/components/Location/Location";
-import Pagination from "@/components/Pagination/Pagination";
-import Card from "@/components/ProductCard/ProductCard";
-import getMany from "@/utils/getMany";
-import { Suspense } from "react";
+"use client"
 
-export default async function Phones() {
-  const phones = await getMany("phones");
+import Location from "@/components/Location/Location";
+import Sorting from "@/components/Sorting/Sorting";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { Suspense, useCallback, useEffect, useState } from "react";
+
+export default function Favourites() {
+  const [favorites, setFavorites] = useState<Product[]>([]);
+  const favoriteProducts: string[] = useLocalStorage("FAVORITES")?.getItem();
+  const stringifiedFavorites = JSON.stringify(favoriteProducts)
+
+  const fetchData = useCallback(async() => {
+    try {
+      const response = await fetch(`/api/favorites?products=${stringifiedFavorites}`);
+      if (response.ok) {
+        const responseData = await response.json();
+        setFavorites(responseData.res)
+      } else {
+        console.error('Failed to fetch data:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }}, [stringifiedFavorites])
+
+  useEffect(() => {
+
+      fetchData();
+
+  }, [fetchData]);
   
   return (
     <>
@@ -14,15 +36,7 @@ export default async function Phones() {
             Favourites
         </div>
       <Suspense>
-        <Pagination>
-          
-          {phones.map(item => (
-            <Card
-              key={item.id}
-              product={item}
-            />
-          ))}
-        </Pagination>
+        <Sorting phones={favorites} />
       </Suspense>
     </>
   );

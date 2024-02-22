@@ -1,9 +1,7 @@
 "use client"; 
 
 import useLocalStorage from '@/hooks/useLocalStorage';
-import Image from 'next/image';
 import { useState, useEffect, useRef, useCallback } from 'react';
-import ArrowLeftBlack from "@/public/icons/ArrowLeftBlack.svg";
 import {CartProduct} from "./CartProduct";
 import Back from '../Back/Back';
 
@@ -13,7 +11,7 @@ interface CartItem {
 
 export default function Cart() {
   const [cart, setCart] = useState<{ product: Product, quantity: number }[]>([]);
-  const productsArray: CartItem[] = useLocalStorage('cart')?.getItem();
+  const productsArray: CartItem[] = useLocalStorage('CART')?.getItem();
   const stringifiedProducts = JSON.stringify(productsArray)
   const [totalCost, setTotalCost] = useState<number>(0);
   const [totalCount, setTotalCount] = useState<number>(0);
@@ -82,7 +80,7 @@ export default function Cart() {
                     quantity={p.quantity}
                     setCart={setCart}/>
                 )})};
-                    <div className="summary flex flex-col flex desktop:justify-center items-center tablet:content-start border border-1 desktop:col-start-17 desktop:row-start-1 tablet:col-span-1 tablet:h-192 tablet:pt-6 desktop:pt-0 tablet:mt-4 desktop:mt-0 mobile:col-span-full">
+                    <div className="summary flex flex-col flex desktop:justify-center items-center tablet:content-start border border-1 desktop:col-start-17 desktop:row-start-1 desktop:row-end-3 tablet:col-span-1 tablet:h-192 tablet:pt-6 desktop:pt-0 tablet:mt-4 desktop:mt-0 mobile:col-span-full">
                         <p className="total text-2xl font-extrabold leading-41 desktop:mt-23">${totalCost}</p>
                         <p className="totalItems text-sm font-medium leading-21">Total for {totalCount} items</p>
                         <div className="h-96 mt-25 border border-transparent border-t-elements-color flex justify-center items-center">

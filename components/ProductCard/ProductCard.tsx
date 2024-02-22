@@ -3,29 +3,36 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState,useEffect } from "react";
 import Heart from "@/public/icons/Heart.svg";
+import RedHeart from "@/public/icons/RedHeart.svg";
 import Link from "next/link";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import { useEffect, useState } from "react";
 
 interface CardProps {
   product: Product,
-  path?: string,
 }
 
-const Card: React.FC<CardProps> = ({ product, path }) => {
+const Card: React.FC<CardProps> = ({ product }) => {
   const [added,setAdded] = useState(false);
   let pathname = usePathname()
-  let { itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
-  const storage = useLocalStorage('cart');
+  let { category, itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
+  const [faovrite, setFavotire] = useState<boolean>(false);
+  const storage = useLocalStorage("CART");
+  const favorites = useLocalStorage("FAVORITES");
   image = '/' + image;
 
-  if (path) {
-    pathname += path;
-  }
+  useEffect(() => {
+    const check = favorites?.getItem();
+    if (check.includes(itemId)) {
+      setFavotire(true)
+    }
+  }, [])
 
   const handleButtonClick = () => {
     setAdded(true);
     storage?.addItemToCart(itemId);
 };
+
 
 useEffect(() => {
   if (added) {
@@ -35,11 +42,19 @@ useEffect(() => {
   }
 }, [added]);
 
+  const handleWhiteHeartClick = () => {
+    favorites?.addFavoriteToStorage(itemId);
+    setFavotire(true)
+  } 
 
+  const handleRedHeartClick = () => {
+    favorites?.removeFavoriteFromStorage(itemId);
+    setFavotire(false)
+  } 
 
   return (
     <div className="card w-272 h-506 flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg">
-      <Link key={itemId} href={`${pathname}/${itemId}`}>
+      <Link key={itemId} href={`${category}/${itemId}`}>
         <div className="w-208 h-196 mt-4 relative">
           <Image src={image} alt="iphone" layout="fill" objectFit="contain" />
         </div>
@@ -67,6 +82,7 @@ useEffect(() => {
         <button className="border w-160 h-40 text-green">
           Added to cart
         </button>
+
         ) 
           :(
             <button className="bg-gray-700 w-160 h-40 text-white" onClick={handleButtonClick}>
@@ -76,6 +92,20 @@ useEffect(() => {
         <button className="w-40 h-40 border-2 flex justify-center items-center">
           <Image src={Heart} alt="heart icon" />
         </button>
+
+        {!faovrite &&
+          <button className="w-40 h-40 border-2 flex justify-center items-center"
+          onClick={handleWhiteHeartClick}>
+            <Image src={Heart} alt="heart icon" />
+          </button>
+        }
+        {faovrite &&
+          <button className="w-40 h-40 border-2 flex justify-center items-center"
+          onClick={handleRedHeartClick}>
+            <Image src={RedHeart} alt="heart icon" />
+          </button>
+        }
+        
       </div>
     </div>
   );
