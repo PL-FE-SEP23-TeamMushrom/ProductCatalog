@@ -6,7 +6,6 @@ import Heart from "@/public/icons/Heart.svg";
 import RedHeart from "@/public/icons/RedHeart.svg";
 import Link from "next/link";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { useEffect, useState } from "react";
 
 interface CardProps {
   product: Product,
