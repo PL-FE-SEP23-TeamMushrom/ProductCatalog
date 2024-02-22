@@ -36,7 +36,7 @@ export const BuyingSection:React.FC<Props>= ({item})=> {
 };
 
 return (
-    <div className="">
+    <div className="mx-5">
       <div className="font-semibold text-xs leading-4 text-secondary-color mb-2">
         <h1>Available colors</h1>
       </div>
