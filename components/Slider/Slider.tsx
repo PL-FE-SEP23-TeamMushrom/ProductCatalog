@@ -39,7 +39,7 @@ export default function Slider() {
             </div>
         </Link>
     </Carousel>
-    <Carousel className="hidden sm:block">
+    <Carousel className="hidden sm:block max-w-screen-xl">
         <Link href={`/phones`}>
             <div className="aspect-w-16 aspect-h-9">
                 <Image src={banerLarge} alt='banner' className="object-cover"/>

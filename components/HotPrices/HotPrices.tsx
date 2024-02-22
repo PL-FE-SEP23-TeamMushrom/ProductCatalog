@@ -22,7 +22,7 @@ const HotPrices: React.FC<NewModelProps> = ({ hotPrices }) => {
   };
 
   return (
-    <div className="mx-auto my-10 xs:w-full xs:px-5 sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150">
+    <div className="mx-auto my-10 max-w-screen-xl xs:w-full xs:px-5 sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150">
       <div className="flex justify-between my-5 xs:w-full sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150">
         <h1 className="font-bold text-4xl">Hot prices</h1>
         <div>
