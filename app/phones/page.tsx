@@ -14,7 +14,7 @@ export default async function Phones() {
         <h2 className="text-lg text-gray-700 font-bold mx-2 mb-6 p-2">
           {phones.length} models
         </h2>
-        <Sorting phones={phones} />
+        <Sorting products={phones} />
       </Suspense>
     </>
   );

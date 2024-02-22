@@ -1,42 +1,43 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import Card from "@/components/ProductCard/ProductCard";
+import CardSkeleton from "../CardSkeleton/CardSkeleton";
 
 interface SortingProps {
-  phones: Product[];
+  products: Product[];
 }
 
-const Sorting: React.FC<SortingProps> = ({ phones }) => {
+const Sorting: React.FC<SortingProps> = ({ products }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [sortedPhones, setSortedPhones] = useState(phones);
+  const [sortedProducts, setSortedProducts] = useState<Product[]>([]);
   const [startIndex, setStartIndex] = useState(0);
   const [pageSize, setPageSize] = useState(8);
   const [sortBy, setSortBy] = useState("newest");
 
-  useEffect(() => {
-    sortPhones(sortBy);
-  }, [phones, sortBy]);
+  useLayoutEffect(() => {
+    sortproducts(sortBy);
+  }, [products, sortBy]);
 
   useEffect(() => {
     setStartIndex(0);
   }, [pageSize]);
 
-  const sortPhones = (criteria: string) => {
-    const sorted = sortPhonesByCriteria([...phones], criteria);
-    setSortedPhones(sorted);
+  const sortproducts = (criteria: string) => {
+    const sorted = sortProductsByCriteria([...products], criteria);
+    setSortedProducts(sorted);
   };
 
-  const sortPhonesByCriteria = (phones: Product[], criteria: string) => {
+  const sortProductsByCriteria = (products: Product[], criteria: string) => {
     switch (criteria) {
       case "newest":
-        return phones.sort((a, b) => b.year - a.year);
+        return products.sort((a, b) => b.year - a.year);
       case "priceLowToHigh":
-        return phones.sort((a, b) => a.price - b.price);
+        return products.sort((a, b) => a.price - b.price);
       case "priceHighToLow":
-        return phones.sort((a, b) => b.price - a.price);
+        return products.sort((a, b) => b.price - a.price);
       default:
-        return phones;
+        return products;
     }
   };
 
@@ -45,7 +46,7 @@ const Sorting: React.FC<SortingProps> = ({ phones }) => {
     setSelectedIndex(pageIndex);
   };
 
-  const totalPages = Math.ceil(sortedPhones.length / pageSize);
+  const totalPages = Math.ceil(sortedProducts.length / pageSize);
 
   return (
     <div className="mx-auto">
@@ -77,10 +78,13 @@ const Sorting: React.FC<SortingProps> = ({ phones }) => {
       </div>
       <div className="grid justify-center">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4">
-          {sortedPhones
-            .slice(startIndex, startIndex + pageSize)
-            .map((phone) => (
-              <Card key={phone.id} product={phone} />
+          {sortedProducts.length === 0 &&
+            Array.from(Array(pageSize), (_, i) => <CardSkeleton key={i} />)
+          }
+          {sortedProducts.length > 0 &&
+            sortedProducts.slice(startIndex, startIndex + pageSize)
+            .map((product) => (
+              <Card key={product.id} product={product} />
             ))}
         </div>
       </div>
