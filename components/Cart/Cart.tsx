@@ -19,7 +19,6 @@ export default function Cart() {
   const fetchData = useCallback(async() => {
     try {
       const response = await fetch(`/api?products=${stringifiedProducts}`);
-      console.log(response)
       if (response.ok) {
         const responseData = await response.json();
         merger(responseData.res)
