@@ -1,6 +1,5 @@
 import Location from "@/components/Location/Location";
-import Pagination from "@/components/Pagination/Pagination";
-import Card from "@/components/ProductCard/ProductCard";
+import Sorting from "@/components/Sorting/Sorting";
 import getMany from "@/utils/getMany";
 import { Suspense } from "react";
 
@@ -9,16 +8,13 @@ export default async function Accesories() {
 
   return (
     <>
-      <Location location='accessories' />
       <Suspense>
-        <Pagination>
-          {accessories.map(item => (
-            <Card
-              key={item.id}
-              product={item}
-            />
-          ))}
-        </Pagination>
+        <Location location="tablets" />
+        <h1 className="text-4xl font-bold mx-2 mt-4 p-2">Accessories</h1>
+        <h2 className="text-lg text-gray-700 font-bold mx-2 mb-6 p-2">
+          {accessories.length} models
+        </h2>
+        <Sorting products={accessories} />
       </Suspense>
     </>
   );

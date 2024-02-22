@@ -1,1 +1,1 @@
-type Category = "phones" | "tablets" | "accessories";
+type Category = "phones" | "tablets" | "accessories" | "favorites";

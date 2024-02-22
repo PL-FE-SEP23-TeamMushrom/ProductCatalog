@@ -1,11 +1,12 @@
 "use client";
-import { usePathname } from "next/navigation";
+
 import Image from "next/image";
 import { useState,useEffect } from "react";
 import Heart from "@/public/icons/Heart.svg";
 import RedHeart from "@/public/icons/RedHeart.svg";
 import Link from "next/link";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import { Loader } from "../Loader";
 
 interface CardProps {
   product: Product,
@@ -13,9 +14,9 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ product }) => {
   const [added,setAdded] = useState(false);
-  let pathname = usePathname()
   let { category, itemId, name, fullPrice, price, screen, capacity, ram, image } = product;
   const [faovrite, setFavotire] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true);
   const storage = useLocalStorage("CART");
   const favorites = useLocalStorage("FAVORITES");
   image = '/' + image;
@@ -53,9 +54,13 @@ useEffect(() => {
 
   return (
     <div className="card w-272 h-506 flex flex-col items-center p-4 border-2 border-gray-200 rounded-lg">
-      <Link key={itemId} href={`${category}/${itemId}`}>
+      <Link key={itemId} href={`/${category}/${itemId}`}>
         <div className="w-208 h-196 mt-4 relative">
-          <Image src={image} alt="iphone" layout="fill" objectFit="contain" />
+          {loading && <Loader />}
+            <Image src={image} onLoadingComplete={() => setLoading(false)}
+            alt="iphone" layout="fill" objectFit="contain" />
+
+          
         </div>
         <h2 className="mt-4 mb-2 w-208 h-48">{name}</h2>
         <div className="flex w-208">

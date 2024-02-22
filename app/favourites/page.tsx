@@ -31,12 +31,12 @@ export default function Favourites() {
   
   return (
     <>
-      <Location location='phones' />
+      <Location location='favorites' />
       <div className="font-bold text-2xl mb-10 mt-4">
             Favourites
         </div>
       <Suspense>
-        <Sorting phones={favorites} />
+        <Sorting products={favorites} />
       </Suspense>
     </>
   );
