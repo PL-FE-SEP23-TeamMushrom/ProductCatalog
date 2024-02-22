@@ -1,62 +1,66 @@
 "use client";
 
-import banerLarge from "../../public/Banner.svg";
-import banerSmall from "../../public/Banner-small.svg";
-import ArrowLeft from "@/public/icons/ArrowLeft.svg";
-import ArrowRight from "@/public/icons/ArrowRight.svg";
+import banerLarge from "@/public/banner.webp";
+import banerAccesory from "@/public/img/banner-accessories.webp";
+import banerPhone from "@/public/img/banner-phones.webp";
+import banerTablet from "@/public/img/banner-tablets.webp";
+import banerMobile from "@/public/baner-small.webp";
+import banerMobileAccesory from "@/public/img/mobile-banner-accessories.webp";
+import banerMobilePhone from "@/public/img/mobile-banner-phones.webp";
+import banerMobileTablet from "@/public/img/mobile-banner-tablets.webp";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
 import Link from "next/link";
-import { useMediaQuery } from "react-responsive";
 
 export default function Slider() {
-  const isMobile = useMediaQuery({ maxWidth: 550 });
   return (
     <>
-      <div className="flex justify-between my-5 xs:px-5 xs:w-full sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150">
-        <h1 className="font-bold text-4xl">Welcome to Nice Gadgets store!</h1>
-      </div>
-      <div className="mx-auto my-10 xs:w-full xs:px-5 sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150">
-        <div className="flex">
-          <button className="hidden md:block max-w-650 border border-gray-300 mr-4">
-            <Image
-              src={ArrowLeft}
-              alt="arrow left icon"
-              width={32}
-              height={32}
-            ></Image>
-          </button>
-          <div className="relative">
-            <Link
-              href="/phones"
-              className="absolute bottom-9 left-16 w-[240px] h-[70px] flex items-center justify-center"
-            >
-              <button className="text-white bg-transparent"></button>
-            </Link>
-            {isMobile ? (
-              <div className="ml-12 p-4">
-                <Link href="/phones">
-                  <Image
-                    src={banerSmall}
-                    width={320}
-                    height={320}
-                    alt="iPhone 14 Pro"
-                  />
-                </Link>
-              </div>
-            ) : (
-              <Image src={banerLarge} objectFit="cover" alt="iPhone 14 Pro" />
-            )}
-          </div>
-          <button className="hidden md:block max-w-650 border border-gray-300 ml-4">
-            <Image
-              src={ArrowRight}
-              alt="arrow right icon"
-              width={32}
-              height={32}
-            ></Image>
-          </button>
-        </div>
-      </div>
-    </>
+    <Carousel className="block sm:hidden">
+        <Link href={`/phones`}>
+            <div className="aspect-w-16 aspect-h-9">
+                <Image src={banerMobile} alt='banner' className="object-cover"/>
+            </div>  
+        </Link>
+        <Link href={`/accessories`}>
+            <div className="aspect-w-16 aspect-h-9">
+                <Image src={banerMobileAccesory} alt='banner' className="object-cover"/>
+            </div>
+        </Link>
+        <Link href={`/phones`}>
+            <div className="aspect-w-16 aspect-h-9">
+                <Image src={banerMobilePhone} alt='banner' className="object-cover" />
+            </div>
+        </Link>
+        <Link href={`/tablets`}>
+            <div className="aspect-w-16 aspect-h-9">
+                <Image src={banerMobileTablet} alt='banner' className="object-cover" />
+            </div>
+        </Link>
+    </Carousel>
+    <Carousel className="hidden sm:block">
+        <Link href={`/phones`}>
+            <div className="aspect-w-16 aspect-h-9">
+                <Image src={banerLarge} alt='banner' className="object-cover"/>
+            </div>
+        </Link>
+        <Link href={`/accessories`}>
+            <div className="aspect-w-16 aspect-h-9">
+                <Image src={banerAccesory} alt='banner' className="object-cover"/>
+            </div>
+        </Link>
+        <Link href={`/phones`}>
+            <div className="aspect-w-16 aspect-h-9">
+                <Image src={banerPhone} alt='banner' className="object-cover" />
+            </div>
+        </Link>
+        <Link href={`/tablets`}>
+            <div className="aspect-w-16 aspect-h-9">
+                <Image src={banerTablet} alt='banner' className="object-cover" />
+            </div>
+        </Link>
+    </Carousel>
+  </>
   );
 }
