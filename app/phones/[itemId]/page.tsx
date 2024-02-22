@@ -26,11 +26,18 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
     ) as Product[];
 
     return (
-    <>
-        <Location location='phones' name={phone.name} />
-        <Back />
-        <div className="font-bold text-2xl mb-10 mt-4">
-            {phone.name}
+    <div className="flex flex-col items-center">
+        <div className="grid desktop:grid-cols-desktop 
+        tablet:grid-cols-tablet 
+        mobile:grid-cols-mobile
+        gap-gap">
+            <div className="col-span-full">
+                <Location location='phones' name={phone.name} />
+                <Back />
+                <div className="font-bold text-2xl mb-10 mt-4">
+                {phone.name}
+                </div>
+            </div>
         </div>
         <div className="grid desktop:grid-cols-desktop
         tablet:grid-cols-tablet 
@@ -39,7 +46,7 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
             <div className="desktop:col-span-12 tablet:col-span-7 mobile:col-span-full">
                 <Gallery images={phone.images}/>
             </div>
-            <div className="desktop:col-span-7 tablet:col-span-5 mobile:col-span-full">
+            <div className="desktop:col-start-14 tablet:col-start-8 desktop:col-span-7 tablet:col-span-5 mobile:col-span-full">
                 <BuyingSection item={JSON.parse(JSON.stringify(phone))}/>
             </div>
         </div>
@@ -54,45 +61,15 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
             <TechSpecs />
             </div>
         </div>
-        <Recommended recommended={recommendedSerialized} itemPrice={phone.priceDiscount} />
-        {/* <div className="flex flex-col py-4 md:w-400 lg:w-600"> */}
-        {/* <hr className="border-t-2" />
-        <div className="mt-10 mb-5">
-            <div className="flex justify-between">
-            <div className="text-gray-400">Screen</div>
-            <div className="text-gray-700">{screen}</div>
+            <div className="grid desktop:grid-cols-desktop 
+            tablet:grid-cols-tablet 
+            mobile:grid-cols-mobile
+            gap-gap">
+                <div className="col-span-full">
+                <Recommended recommended={recommendedSerialized} itemPrice={phone.priceDiscount} />
+                </div>
             </div>
-            <div className="flex justify-between">
-            <div className="text-gray-400">Resolution</div>
-            <div className="text-gray-700">{resolution}</div>
-            </div>
-            <div className="flex justify-between">
-            <div className="text-gray-400">Processor</div>
-            <div className="text-gray-700">{processor}</div>
-            </div>
-            <div className="flex justify-between">
-            <div className="text-gray-400">RAM</div>
-            <div className="text-gray-700">{ram}</div>
-            </div>
-            <div className="flex justify-between">
-            <div className="text-gray-400">Built in memory</div>
-            <div className="text-gray-700">64 GB</div>
-            </div>
-            <div className="flex justify-between">
-            <div className="text-gray-400">Camera</div>
-            <div className="text-gray-700">{camera}</div>
-            </div>
-            <div className="flex justify-between">
-            <div className="text-gray-400">Zoom</div>
-            <div className="text-gray-700">{zoom}</div>
-            </div>
-            <div className="flex justify-between">
-            <div className="text-gray-400">Cell</div>
-            <div className="text-gray-700">{cell.slice(0, 3).join(", ")}</div>
-            </div>
-        </div> */}
-        {/* </div> */}
-        </>
+        </div>
     );
     };
 

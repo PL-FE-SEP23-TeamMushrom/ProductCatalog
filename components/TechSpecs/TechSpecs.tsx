@@ -8,7 +8,7 @@ const TechSpecs = async () => {
     phoneData as TechSpec;
 
   return (
-    <div className="flex flex-col p-4 sm:mx-8 md:mx-16 lg:mx-24 md:w-400 lg:w-600">
+    <div className="flex flex-col py-4">
       <div className="font-bold text-2xl mb-5">
         <h1>Tech specs</h1>
       </div>
