@@ -1,8 +1,8 @@
 import connectToDatabase from "@/lib/connect";
-import CategoryShop from "@/components/Category-shop/Category-shop";
-import NewModels from "@/components/NewModels/NewModels";
-import HotPrices from "@/components/HotPrices/HotPrices";
-import Banner from "@/components/Banner/Banner";
+import { NewModels } from "@/components/NewModels";
+import { HotPrices } from "@/components/HotPrices";
+import { Banner } from "@/components/Banner";
+import { CategoryShop } from "@/components/CategoryShop";
 
 export default async function Home() {
   const db = await connectToDatabase();

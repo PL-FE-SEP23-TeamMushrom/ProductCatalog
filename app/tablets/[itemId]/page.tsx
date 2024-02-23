@@ -1,8 +1,8 @@
 import connectToDatabase from "@/lib/connect";
-import Back from "@/components/Back/Back";
-import Location from "@/components/Location/Location";
-import About from "@/components/About/About";
-import TechSpecs from "@/components/TechSpecs/TechSpecs";
+import { Back } from "@/components/Back";
+import { Location } from "@/components/Location";
+import { About } from "@/components/About";
+import { TechSpecs } from "@/components/TechSpecs";
 import getOne from "@/utils/getOne";
 import getManySimilar from "@/utils/getManySimilar";
 import { BuyingSection } from "@/components/BuyingSection/BuyingSection";

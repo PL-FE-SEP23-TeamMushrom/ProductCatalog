@@ -1,5 +1,5 @@
-import Location from "@/components/Location/Location";
-import Sorting from "@/components/Sorting/Sorting";
+import { Location } from "@/components/Location";
+import { Sorting } from "@/components/Sorting";
 import getMany from "@/utils/getMany";
 import { Suspense } from "react";
 

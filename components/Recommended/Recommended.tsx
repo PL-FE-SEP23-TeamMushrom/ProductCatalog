@@ -60,3 +60,4 @@ export const Recommended: React.FC<NewModelProps> = ({ recommended, itemPrice })
   );
 };
 
+export default Recommended

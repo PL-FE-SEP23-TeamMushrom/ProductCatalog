@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { FullProductInfo } from "@/lib/types/fullProductInfo";
-import { AboutType } from "../../lib/types/about";
-import connectToDatabase from "@/lib/connect";
 import { ColorSquare } from "./ColorSquare";
 import { CapacityButton } from "./CapacityButton";
 import Heart from "@/public/icons/Heart.svg";

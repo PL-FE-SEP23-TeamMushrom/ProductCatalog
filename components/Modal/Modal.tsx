@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 
   
-  export const Modal =()=> {
+  const Modal =()=> {
     const router = useRouter();
 
     const backToHome = () => {
@@ -24,3 +24,5 @@ import { useRouter } from "next/navigation";
         </>
     );
 };
+
+export default Modal
