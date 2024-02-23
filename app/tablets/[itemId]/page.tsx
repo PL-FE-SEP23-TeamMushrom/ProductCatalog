@@ -44,7 +44,7 @@ const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
                 <Gallery images={tablet.images}/>
             </div>
             <div className="desktop:col-start-14 tablet:col-start-8 desktop:col-span-7 tablet:col-span-5 mobile:col-span-full">
-                <BuyingSection item={JSON.parse(JSON.stringify(tablet))}/>
+                <BuyingSection item={JSON.parse(JSON.stringify(tablet))} itemId={params.itemId}/>
             </div>
         </div>
         <div className="grid desktop:grid-cols-desktop 

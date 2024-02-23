@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import Card from "@/components/ProductCard/ProductCard";
+import { Card } from "@/components/ProductCard";
 import CardSkeleton from "../CardSkeleton/CardSkeleton";
 
 interface SortingProps {
