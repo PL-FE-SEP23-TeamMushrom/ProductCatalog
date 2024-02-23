@@ -22,7 +22,7 @@ const HotPrices: React.FC<NewModelProps> = ({ hotPrices }) => {
   };
 
   return (
-    <div className="mx-auto my-10 max-w-screen-xl xs:w-full xs:px-5 sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150">
+    <div className="mx-auto my-10 max-w-screen-xl w-full xs:px-5 sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150 overflow-hidden">
       <div className="flex justify-between my-5 xs:w-full sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150">
         <h1 className="font-bold text-4xl">Hot prices</h1>
         <div>
@@ -47,7 +47,7 @@ const HotPrices: React.FC<NewModelProps> = ({ hotPrices }) => {
           </button>
         </div>
       </div>
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-between gap-4 overflow-auto">
         {hotPrices
           .filter((hotPrice) => hotPrice.price < 640)
           .slice(startIndex, startIndex + 4)

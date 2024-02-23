@@ -2,7 +2,7 @@ import connectToDatabase from "@/lib/connect";
 import CategoryShop from "@/components/Category-shop/Category-shop";
 import NewModels from "@/components/NewModels/NewModels";
 import HotPrices from "@/components/HotPrices/HotPrices";
-import Slider from "@/components/Slider/Slider";
+import Banner from "@/components/Banner/Banner";
 
 export default async function Home() {
   const db = await connectToDatabase();
@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center max-w-full mx-auto my-10 xs:w-full sm:w-full">
-      <Slider />
+      <Banner />
       <NewModels newModels={serialized} />
       <CategoryShop />
       <HotPrices hotPrices={hotPricesSerialized} />

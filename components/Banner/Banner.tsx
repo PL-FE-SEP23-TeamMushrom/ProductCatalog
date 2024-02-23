@@ -14,7 +14,7 @@ import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Slider() {
+export default function Banner() {
   return (
     <>
     <Carousel className="block sm:hidden">
