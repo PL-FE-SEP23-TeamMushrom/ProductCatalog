@@ -1,6 +1,6 @@
 
 import getManyWithId from "@/utils/getManyById";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
 export const dynamic = 'force-dynamic' // defaults to auto
 

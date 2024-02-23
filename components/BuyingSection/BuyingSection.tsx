@@ -2,19 +2,22 @@
 
 import Image from "next/image";
 import { FullProductInfo } from "@/lib/types/fullProductInfo";
-import { AboutType } from "../../lib/types/about";
-import connectToDatabase from "@/lib/connect";
 import { ColorSquare } from "./ColorSquare";
 import { CapacityButton } from "./CapacityButton";
 import Heart from "@/public/icons/Heart.svg";
+import RedHeart from "@/public/icons/RedHeart.svg";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import { useEffect, useState } from "react";
 
 type Props = {
-  item:FullProductInfo,
+  item: FullProductInfo,
+  itemId: string,
 }
 
-export const BuyingSection:React.FC<Props>= ({item})=> {
+export const BuyingSection:React.FC<Props>= ({item, itemId})=> {
   const storage = useLocalStorage("CART");
+  const [faovrite, setFavotire] = useState<boolean>(false);
+  const favorites = useLocalStorage("FAVORITES");
 
   const {
     id,
@@ -34,6 +37,23 @@ export const BuyingSection:React.FC<Props>= ({item})=> {
   const handleButtonClick = () => {
     storage?.addItemToCart(id);
 };
+
+useEffect(() => {
+  const check = favorites?.getItem();
+  if (check.includes(itemId)) {
+    setFavotire(true)
+  }
+}, [])
+
+const handleWhiteHeartClick = () => {
+  favorites?.addFavoriteToStorage(itemId);
+  setFavotire(true)
+} 
+
+const handleRedHeartClick = () => {
+  favorites?.removeFavoriteFromStorage(itemId);
+  setFavotire(false)
+} 
 
 return (
     <div className="">
@@ -65,9 +85,18 @@ return (
         onClick={handleButtonClick}>
           Add to cart
         </button>
-        <button className="w-40 h-40 border-2 flex justify-center items-center">
-          <Image src={Heart} alt="heart icon" />
-        </button>
+        {!faovrite &&
+          <button className="w-40 h-40 border-2 flex justify-center items-center"
+          onClick={handleWhiteHeartClick}>
+            <Image src={Heart} alt="heart icon" />
+          </button>
+        }
+        {faovrite &&
+          <button className="w-40 h-40 border-2 flex justify-center items-center"
+          onClick={handleRedHeartClick}>
+            <Image src={RedHeart} alt="heart icon"/>
+          </button>
+        }
       </div>
       <div className="flex flex-template-col place-content-between mt-8">
           <div className="text-secondary-color text-xs font-semibold">

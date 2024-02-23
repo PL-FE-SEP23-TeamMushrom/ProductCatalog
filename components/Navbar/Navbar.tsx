@@ -11,10 +11,10 @@ import { SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
 const Navbar = () => {
   const pathname = usePathname();
 
-  const [isActive, setIsActive] = useState(false); // State to manage active class
+  const [isActive, setIsActive] = useState(false);
 
   const toggleActive = () => {
-    setIsActive(!isActive); // Toggle the state value
+    setIsActive(!isActive); 
   };
 
   return (

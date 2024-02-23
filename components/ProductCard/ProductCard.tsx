@@ -6,7 +6,7 @@ import Heart from "@/public/icons/Heart.svg";
 import RedHeart from "@/public/icons/RedHeart.svg";
 import Link from "next/link";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { Loader } from "../Loader";
+import { Loader } from "@/components/Loader";
 
 interface CardProps {
   product: Product,

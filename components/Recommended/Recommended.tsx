@@ -23,7 +23,7 @@ export const Recommended: React.FC<NewModelProps> = ({ recommended, itemPrice })
   };
 
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <div className="flex justify-between">
         <h1 className="font-bold text-2xl">Recommended</h1>
         <div>
@@ -48,7 +48,7 @@ export const Recommended: React.FC<NewModelProps> = ({ recommended, itemPrice })
           </button>
         </div>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 overflow-auto">
         {recommended
           .filter((recommended) => Math.abs(itemPrice-recommended.price)<200)
           .slice(startIndex, startIndex + 4)
@@ -60,3 +60,4 @@ export const Recommended: React.FC<NewModelProps> = ({ recommended, itemPrice })
   );
 };
 
+export default Recommended

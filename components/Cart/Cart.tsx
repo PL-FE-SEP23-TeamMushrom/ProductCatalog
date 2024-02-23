@@ -1,10 +1,10 @@
 "use client"; 
 
 import useLocalStorage from '@/hooks/useLocalStorage';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import {CartProduct} from "./CartProduct";
-import Back from '../Back/Back';
-import { Modal } from '@/components/Modal/Modal';
+import { Back } from '@/components/Back';
+import { Modal } from '@/components/Modal';
 
 interface CartItem {
   [productId: string]: number;
