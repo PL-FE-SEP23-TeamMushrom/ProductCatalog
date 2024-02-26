@@ -7,11 +7,14 @@ import ArrowRight from "@/public/icons/ArrowRight.svg";
 import Card from "@/components/ProductCard/ProductCard";
 
 interface NewModelProps {
-  recommended: Product[],
-  itemPrice: number,
+  recommended: Product[];
+  itemPrice: number;
 }
 
-export const Recommended: React.FC<NewModelProps> = ({ recommended, itemPrice }) => {
+export const Recommended: React.FC<NewModelProps> = ({
+  recommended,
+  itemPrice,
+}) => {
   const [startIndex, setStartIndex] = useState(0);
 
   const handlePrevClick = () => {
@@ -50,7 +53,9 @@ export const Recommended: React.FC<NewModelProps> = ({ recommended, itemPrice })
       </div>
       <div className="flex items-center gap-4 overflow-auto">
         {recommended
-          .filter((recommended) => Math.abs(itemPrice-recommended.price)<200)
+          .filter(
+            (recommended) => Math.abs(itemPrice - recommended.price) < 200,
+          )
           .slice(startIndex, startIndex + 4)
           .map((recommended) => (
             <Card key={recommended.id} product={recommended} />
@@ -60,4 +65,4 @@ export const Recommended: React.FC<NewModelProps> = ({ recommended, itemPrice })
   );
 };
 
-export default Recommended
+export default Recommended;

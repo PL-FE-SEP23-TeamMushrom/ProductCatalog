@@ -13,7 +13,7 @@ export default async function Home() {
   const serialized = JSON.parse(JSON.stringify(phones)) as Product[];
   const hotPrices = await db.collection<Product>("products").find({}).toArray();
   const hotPricesSerialized = JSON.parse(
-    JSON.stringify(hotPrices)
+    JSON.stringify(hotPrices),
   ) as Product[];
 
   return (

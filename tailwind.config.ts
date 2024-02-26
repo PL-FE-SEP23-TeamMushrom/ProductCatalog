@@ -6,10 +6,10 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  
+
   theme: {
     extend: {
-      keyframes: {    "shimmer": {      "100%": {        "transform": "translateX(100%)",      },    },  },
+      keyframes: { shimmer: { "100%": { transform: "translateX(100%)" } } },
       fontFamily: {
         font: ["Mont", "sans-serif"],
       },
@@ -119,7 +119,7 @@ const config: Config = {
       gridColumnStart: {
         "17": "17",
         "14": "14",
-        "13": "13", 
+        "13": "13",
         "7": "7",
         "8": "8",
       },

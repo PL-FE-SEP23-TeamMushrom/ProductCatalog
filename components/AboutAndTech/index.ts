@@ -1,1 +1,1 @@
-export { default as AboutAndTech } from './AboutAndTech';
+export { default as AboutAndTech } from "./AboutAndTech";

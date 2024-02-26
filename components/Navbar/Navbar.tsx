@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleActive = () => {
-    setIsActive(!isActive); 
+    setIsActive(!isActive);
   };
 
   return (

@@ -17,50 +17,62 @@ import Link from "next/link";
 export default function Banner() {
   return (
     <>
-    <Carousel className="block sm:hidden">
+      <Carousel className="block sm:hidden">
         <Link href={`/phones`}>
-            <div className="aspect-w-16 aspect-h-9">
-                <Image src={banerMobile} alt='banner' className="object-cover"/>
-            </div>  
+          <div className="aspect-w-16 aspect-h-9">
+            <Image src={banerMobile} alt="banner" className="object-cover" />
+          </div>
         </Link>
         <Link href={`/accessories`}>
-            <div className="aspect-w-16 aspect-h-9">
-                <Image src={banerMobileAccesory} alt='banner' className="object-cover"/>
-            </div>
+          <div className="aspect-w-16 aspect-h-9">
+            <Image
+              src={banerMobileAccesory}
+              alt="banner"
+              className="object-cover"
+            />
+          </div>
         </Link>
         <Link href={`/phones`}>
-            <div className="aspect-w-16 aspect-h-9">
-                <Image src={banerMobilePhone} alt='banner' className="object-cover" />
-            </div>
+          <div className="aspect-w-16 aspect-h-9">
+            <Image
+              src={banerMobilePhone}
+              alt="banner"
+              className="object-cover"
+            />
+          </div>
         </Link>
         <Link href={`/tablets`}>
-            <div className="aspect-w-16 aspect-h-9">
-                <Image src={banerMobileTablet} alt='banner' className="object-cover" />
-            </div>
+          <div className="aspect-w-16 aspect-h-9">
+            <Image
+              src={banerMobileTablet}
+              alt="banner"
+              className="object-cover"
+            />
+          </div>
         </Link>
-    </Carousel>
-    <Carousel className="hidden sm:block max-w-screen-xl">
+      </Carousel>
+      <Carousel className="hidden sm:block max-w-screen-xl">
         <Link href={`/phones`}>
-            <div className="aspect-w-16 aspect-h-9">
-                <Image src={banerLarge} alt='banner' className="object-cover"/>
-            </div>
+          <div className="aspect-w-16 aspect-h-9">
+            <Image src={banerLarge} alt="banner" className="object-cover" />
+          </div>
         </Link>
         <Link href={`/accessories`}>
-            <div className="aspect-w-16 aspect-h-9">
-                <Image src={banerAccesory} alt='banner' className="object-cover"/>
-            </div>
+          <div className="aspect-w-16 aspect-h-9">
+            <Image src={banerAccesory} alt="banner" className="object-cover" />
+          </div>
         </Link>
         <Link href={`/phones`}>
-            <div className="aspect-w-16 aspect-h-9">
-                <Image src={banerPhone} alt='banner' className="object-cover" />
-            </div>
+          <div className="aspect-w-16 aspect-h-9">
+            <Image src={banerPhone} alt="banner" className="object-cover" />
+          </div>
         </Link>
         <Link href={`/tablets`}>
-            <div className="aspect-w-16 aspect-h-9">
-                <Image src={banerTablet} alt='banner' className="object-cover" />
-            </div>
+          <div className="aspect-w-16 aspect-h-9">
+            <Image src={banerTablet} alt="banner" className="object-cover" />
+          </div>
         </Link>
-    </Carousel>
-  </>
+      </Carousel>
+    </>
   );
 }

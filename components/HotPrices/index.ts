@@ -1,1 +1,1 @@
-export { default as HotPrices } from './HotPrices';
+export { default as HotPrices } from "./HotPrices";

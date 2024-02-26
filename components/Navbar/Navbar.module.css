@@ -1,5 +1,5 @@
 .customLink {
-  border-color:#313237;
+  border-color: #313237;
   @apply border-b-2;
 }
 
@@ -21,9 +21,10 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  transition: width 2s ease, background-color 0.5s ease;
-  @apply px-3 py-4 box-content border-x border-gray-300
-
+  transition:
+    width 2s ease,
+    background-color 0.5s ease;
+  @apply px-3 py-4 box-content border-x border-gray-300;
 }
 
 .bar {
