@@ -1,5 +1,5 @@
 import "@/app/globals.css";
-import Cart from "components/Cart/Cart";
+import { Cart } from "components/Cart";
 
 export default async function CartPage() {
   return (

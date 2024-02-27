@@ -91,7 +91,7 @@ const Navbar = () => {
             className="flex items-center h-full border-x border-gray-300"
           >
             <Image
-              className="px-4 py-3 box-content"
+              className="hidden sm:flex px-4 py-3 box-content"
               width={20}
               height={20}
               src={"/icons/shop.svg"}

@@ -1,5 +1,5 @@
 import { Location } from "components/Location";
-import getMany from "@/utils/getMany";
+import getMany from "utils/getMany";
 import { Suspense } from "react";
 import { Sorting } from "components/Sorting";
 
