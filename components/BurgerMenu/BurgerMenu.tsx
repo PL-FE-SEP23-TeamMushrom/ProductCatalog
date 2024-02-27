@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Heart from "@/public/icons/Heart.svg";
-import ShoppingBag from "@/public/icons/ShoppingBag.svg";
+import Heart from "icons/Heart.svg";
+import ShoppingBag from "icons/ShoppingBag.svg";
 
 export default function BurgerMenu() {
   return (

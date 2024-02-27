@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 import { useState } from "react";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import { BurgerMenu } from "components/BurgerMenu";
 import { SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {

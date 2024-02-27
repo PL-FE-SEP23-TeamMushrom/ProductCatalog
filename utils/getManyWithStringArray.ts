@@ -1,4 +1,4 @@
-import connectToDatabase from "@/lib/connect";
+import connectToDatabase from "lib/connect";
 
 export default async function getManyWithStringArray(array: string[]) {
   const db = await connectToDatabase();

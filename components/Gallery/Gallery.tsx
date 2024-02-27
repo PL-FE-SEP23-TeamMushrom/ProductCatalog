@@ -63,7 +63,7 @@ export const Gallery: React.FC<Props> = ({ images }) => {
           className="relative desktop:col-span-10 tablet:col-span-6 mobile:col-span-full aspect-square"
           {...handlers}
         >
-          <Image src={activeImage} alt="image" fill objectFit="contain" />
+          <Image src={activeImage} alt="image" fill style={{objectFit: "contain"}} />
         </div>
       </div>
     </div>

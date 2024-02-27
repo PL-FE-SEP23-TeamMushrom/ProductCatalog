@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import ArrowLeft from "@/public/icons/ArrowLeft.svg";
-import ArrowRight from "@/public/icons/ArrowRight.svg";
-import Card from "@/components/ProductCard/ProductCard";
+import ArrowLeft from "icons/ArrowLeft.svg";
+import ArrowRight from "icons/ArrowRight.svg";
+import { Card } from "components/ProductCard";
 
 interface NewModelProps {
   hotPrices: Product[];
@@ -12,13 +12,16 @@ interface NewModelProps {
 
 const HotPrices: React.FC<NewModelProps> = ({ hotPrices }) => {
   const [startIndex, setStartIndex] = useState(0);
+  const numberOfMovedProducts = 4;
+  const squareSize = 32;
+  const minimumPrice = 1500;
 
   const handlePrevClick = () => {
-    setStartIndex((prevIndex) => Math.max(prevIndex - 4, 0));
+    setStartIndex((prevIndex) => Math.max(prevIndex - numberOfMovedProducts, 0));
   };
 
   const handleNextClick = () => {
-    setStartIndex((prevIndex) => prevIndex + 4);
+    setStartIndex((prevIndex) => prevIndex + numberOfMovedProducts);
   };
 
   return (
@@ -33,24 +36,24 @@ const HotPrices: React.FC<NewModelProps> = ({ hotPrices }) => {
             <Image
               src={ArrowLeft}
               alt="arrow left icon"
-              width={32}
-              height={32}
+              width={squareSize}
+              height={squareSize}
             ></Image>
           </button>
           <button className="border border-gray-300" onClick={handleNextClick}>
             <Image
               src={ArrowRight}
               alt="arrow right icon"
-              width={32}
-              height={32}
+              width={squareSize}
+              height={squareSize}
             ></Image>
           </button>
         </div>
       </div>
       <div className="flex items-center justify-between gap-4 overflow-auto">
         {hotPrices
-          .filter((hotPrice) => hotPrice.price < 640)
-          .slice(startIndex, startIndex + 4)
+          .filter((hotPrice) => hotPrice.price > minimumPrice)
+          .slice(startIndex, startIndex + numberOfMovedProducts)
           .map((hotPrice) => (
             <Card key={hotPrice.id} product={hotPrice} />
           ))}

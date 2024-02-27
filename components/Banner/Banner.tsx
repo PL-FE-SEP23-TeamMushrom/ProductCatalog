@@ -1,13 +1,13 @@
 "use client";
 
-import banerLarge from "@/public/banner.webp";
-import banerAccesory from "@/public/img/banner-accessories.webp";
-import banerPhone from "@/public/img/banner-phones.webp";
-import banerTablet from "@/public/img/banner-tablets.webp";
-import banerMobile from "@/public/baner-small.webp";
-import banerMobileAccesory from "@/public/img/mobile-banner-accessories.webp";
-import banerMobilePhone from "@/public/img/mobile-banner-phones.webp";
-import banerMobileTablet from "@/public/img/mobile-banner-tablets.webp";
+import banerLarge from "public/banner.webp";
+import banerAccesory from "img/banner-accessories.webp";
+import banerPhone from "img/banner-phones.webp";
+import banerTablet from "img/banner-tablets.webp";
+import banerMobile from "public/baner-small.webp";
+import banerMobileAccesory from "img/mobile-banner-accessories.webp";
+import banerMobilePhone from "img/mobile-banner-phones.webp";
+import banerMobileTablet from "img/mobile-banner-tablets.webp";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { Carousel } from "react-responsive-carousel";
@@ -17,7 +17,7 @@ import Link from "next/link";
 export default function Banner() {
   return (
     <>
-      <Carousel className="block sm:hidden">
+      <Carousel showThumbs={false} className="block sm:hidden">
         <Link href={`/phones`}>
           <div className="aspect-w-16 aspect-h-9">
             <Image src={banerMobile} alt="banner" className="object-cover" />
@@ -51,7 +51,7 @@ export default function Banner() {
           </div>
         </Link>
       </Carousel>
-      <Carousel className="hidden sm:block max-w-screen-xl">
+      <Carousel showThumbs={false} className="hidden sm:block max-w-screen-xl">
         <Link href={`/phones`}>
           <div className="aspect-w-16 aspect-h-9">
             <Image src={banerLarge} alt="banner" className="object-cover" />

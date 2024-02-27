@@ -1,4 +1,4 @@
-import connectToDatabase from "@/lib/connect";
+import connectToDatabase from "lib/connect";
 
 export const getItems = async (collection: string, limit?: number) => {
   const db = await connectToDatabase();

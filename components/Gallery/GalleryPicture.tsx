@@ -18,7 +18,7 @@ export const GalleryPicture: React.FC<Props> = ({
     (active ? " border-primary-color" : " border-elements-color");
   return (
     <button className={options} onClick={() => setAsActive(image)}>
-      <Image src={image} alt="image" fill objectFit="contain" />
+      <Image src={image} alt="image" fill style={{objectFit: "contain"}} />
     </button>
   );
 };

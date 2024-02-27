@@ -1,13 +1,13 @@
 "use client";
 
-import ArrowUp from "@/public/icons/ArrowUp.svg";
+import ArrowUp from "icons/ArrowUp.svg";
 import Image from "next/image";
 
 function ScrollToTopButton() {
   const handleClick = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // This enables smooth scrolling
+      behavior: "smooth",
     });
   };
 

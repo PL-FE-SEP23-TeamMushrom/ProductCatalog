@@ -1,12 +1,12 @@
-import { Back } from "@/components/Back";
-import { Location } from "@/components/Location";
-import { About } from "@/components/About";
-import { TechSpecs } from "@/components/TechSpecs";
+import { Back } from "components/Back";
+import { Location } from "components/Location";
+import { About } from "components/About";
+import { TechSpecs } from "components/TechSpecs";
 import getOne from "@/utils/getOne";
 import getManySimilar from "@/utils/getManySimilar";
-import { BuyingSection } from "@/components/BuyingSection/BuyingSection";
-import { Gallery } from "@/components/Gallery/Gallery";
-import { Recommended } from "@/components/Recommended/Recommended";
+import { BuyingSection } from "components/BuyingSection/BuyingSection";
+import { Gallery } from "components/Gallery/Gallery";
+import { Recommended } from "components/Recommended/Recommended";
 
 const DetailsPage = async ({ params }: { params: { itemId: string } }) => {
   const phone = await getOne("phones", params.itemId);

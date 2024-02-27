@@ -1,9 +1,9 @@
 import React, { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
-import Union from "@/public/icons/Union.svg";
-import Minus from "@/public/icons/Minus.svg";
-import Plus from "@/public/icons/Plus.svg";
-import useLocalStorage from "@/hooks/useLocalStorage";
+import Union from "icons/Union.svg";
+import Minus from "icons/Minus.svg";
+import Plus from "icons/Plus.svg";
+import useLocalStorage from "hooks/useLocalStorage";
 import Link from "next/link";
 
 type Props = {

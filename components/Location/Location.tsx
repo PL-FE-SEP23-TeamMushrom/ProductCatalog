@@ -8,6 +8,8 @@ interface LocationProps {
 
 const Location = ({ location, name }: LocationProps) => {
   const realPath = location + "?page=1";
+  const squareSize = 16;
+
   return (
     <div className="flex items-center mt-5">
       <Link
@@ -19,8 +21,8 @@ const Location = ({ location, name }: LocationProps) => {
           className="mr-1"
           src={"/icons/Home.svg"}
           alt="home"
-          width={16}
-          height={16}
+          width={squareSize}
+          height={squareSize}
         />
       </Link>
       {location && (
@@ -29,8 +31,8 @@ const Location = ({ location, name }: LocationProps) => {
             className="mx-1"
             src={"/icons/ArrowRightBlack.svg"}
             alt="arrow"
-            width={16}
-            height={16}
+            width={squareSize}
+            height={squareSize}
           />
           <Link href={`/${realPath}`}>
             <span className="text-xs font-700 ml-1 flex items-center">
@@ -46,8 +48,8 @@ const Location = ({ location, name }: LocationProps) => {
             className="mx-1"
             src={"/icons/ArrowRightBlack.svg"}
             alt="arrow"
-            width={16}
-            height={16}
+            width={squareSize}
+            height={squareSize}
           />
           <span className="text-xs text-secondary-color font-700 ml-1 flex items-center">
             {name}

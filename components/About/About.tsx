@@ -1,5 +1,5 @@
-import { AboutType } from "../../lib/types/about";
-import connectToDatabase from "@/lib/connect";
+import { AboutType } from "types/about";
+import connectToDatabase from "lib/connect";
 
 const About = async () => {
   const db = await connectToDatabase();

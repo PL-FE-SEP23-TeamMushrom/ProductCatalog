@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { FullProductInfo } from "@/lib/types/fullProductInfo";
+import { FullProductInfo } from "types/fullProductInfo";
 import { ColorSquare } from "./ColorSquare";
 import { CapacityButton } from "./CapacityButton";
-import Heart from "@/public/icons/Heart.svg";
-import RedHeart from "@/public/icons/RedHeart.svg";
-import useLocalStorage from "@/hooks/useLocalStorage";
+import Heart from "icons/Heart.svg";
+import RedHeart from "icons/RedHeart.svg";
+import useLocalStorage from "hooks/useLocalStorage";
 import { useEffect, useState } from "react";
 
 type Props = {

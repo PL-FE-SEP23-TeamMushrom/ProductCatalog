@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import Heart from "@/public/icons/Heart.svg";
-import RedHeart from "@/public/icons/RedHeart.svg";
+import Heart from "icons/Heart.svg";
+import RedHeart from "icons/RedHeart.svg";
 import Link from "next/link";
-import useLocalStorage from "@/hooks/useLocalStorage";
-import { Loader } from "@/components/Loader";
+import useLocalStorage from "hooks/useLocalStorage";
+import { Loader } from "components/Loader";
 
 interface CardProps {
   product: Product;
@@ -66,10 +66,11 @@ const Card: React.FC<CardProps> = ({ product }) => {
           {loading && <Loader />}
           <Image
             src={image}
-            onLoadingComplete={() => setLoading(false)}
+            onLoad={() => setLoading(false)}
             alt="iphone"
-            layout="fill"
-            objectFit="contain"
+            fill={true}
+            sizes="208px, 196px"
+            style={{objectFit: "contain"}}
           />
         </div>
         <h2 className="mt-4 mb-2 w-208 h-48">{name}</h2>

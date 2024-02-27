@@ -1,8 +1,8 @@
 "use client";
 
-import { Location } from "@/components/Location";
-import { Sorting } from "@/components/Sorting";
-import useLocalStorage from "@/hooks/useLocalStorage";
+import { Location } from "components/Location";
+import { Sorting } from "components/Sorting";
+import useLocalStorage from "hooks/useLocalStorage";
 import { Suspense, useCallback, useEffect, useState } from "react";
 
 export default function Favourites() {

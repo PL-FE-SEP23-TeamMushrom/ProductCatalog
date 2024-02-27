@@ -1,13 +1,13 @@
 import Image from "next/image";
-import Logo from "@/public/ui-kit/Logo.webp";
-import ScrollToTopButton from "./ScrollToTopButton/ScrollToTopButton";
+import Logo from "public/ui-kit/Logo.webp";
+import { ScrollToTopButton } from "./ScrollToTopButton";
 
 export default function Footer() {
   return (
     <>
       <div className="footer flex-row justify-center items-center border-t border-elements-color pt-8 my-10 w-full hidden sm:flex">
         <div className="basis-1/3 sm:ml-8 md:ml-16 lg:ml-24">
-          <Image src={Logo} alt="logo" objectFit="contain" />
+          <Image src={Logo} alt="logo" style={{objectFit: "contain"}} />
         </div>
         <div className="basis-1/3 flex justify-between text-secondary-color font-extrabold">
           <a href="#" className="font-800">
@@ -27,7 +27,7 @@ export default function Footer() {
       </div>
       <div className="footer flex-column border-t border-elements-color pt-8 my-10 w-full sm:hidden">
         <div className="flex flex-col ml-10 text-secondary-color">
-          <Image src={Logo} alt="logo" objectFit="contain" />
+          <Image src={Logo} alt="logo" style={{objectFit: "contain"}} />
           <a href="#" className="font-800 mt-9 mb-2">
             GITHUB
           </a>
