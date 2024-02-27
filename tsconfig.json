@@ -24,6 +24,7 @@
       "components/*": ["components/*"],
       "lib/*": ["lib/*"],
       "hooks/*": ["hooks/*"],
+      "utils/*": ["utils/*"],
       "img/*": ["public/img/*"],
       "icons/*": ["public/icons/*"],
       "types/*": ["lib/types/*"],

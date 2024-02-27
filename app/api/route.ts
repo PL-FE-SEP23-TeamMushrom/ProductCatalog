@@ -1,4 +1,4 @@
-import getManyWithId from "@/utils/getManyById";
+import getManyWithId from "utils/getManyById";
 import { NextRequest } from "next/server";
 
 export const dynamic = "force-dynamic"; 

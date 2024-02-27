@@ -1,4 +1,4 @@
-import getManyWithStringArray from "@/utils/getManyWithStringArray";
+import getManyWithStringArray from "utils/getManyWithStringArray";
 import { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {

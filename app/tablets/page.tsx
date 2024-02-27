@@ -1,6 +1,6 @@
 import { Location } from "components/Location";
 import { Sorting } from "components/Sorting";
-import getMany from "@/utils/getMany";
+import getMany from "utils/getMany";
 import { Suspense } from "react";
 
 export default async function Tablets() {
