@@ -142,3 +142,5 @@ export const BuyingSection: React.FC<Props> = ({ item, itemId }) => {
     </div>
   );
 };
+
+export default BuyingSection

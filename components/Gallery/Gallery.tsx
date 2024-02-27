@@ -69,3 +69,5 @@ export const Gallery: React.FC<Props> = ({ images }) => {
     </div>
   );
 };
+
+export default Gallery

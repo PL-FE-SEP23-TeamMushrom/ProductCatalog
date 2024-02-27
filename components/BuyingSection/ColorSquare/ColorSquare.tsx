@@ -36,3 +36,5 @@ export const ColorSquare: React.FC<Props> = ({
       </Link>
     );
 };
+
+export default ColorSquare

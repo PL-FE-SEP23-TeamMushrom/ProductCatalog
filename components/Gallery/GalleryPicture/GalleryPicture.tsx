@@ -22,3 +22,5 @@ export const GalleryPicture: React.FC<Props> = ({
     </button>
   );
 };
+
+export default GalleryPicture

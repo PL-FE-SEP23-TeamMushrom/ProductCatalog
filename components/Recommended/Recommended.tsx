@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import ArrowLeft from "icons/ArrowLeft.svg";
 import ArrowRight from "icons/ArrowRight.svg";
-import Card from "components/ProductCard/ProductCard";
+import { Card } from "components/ProductCard";
 
 interface NewModelProps {
   recommended: Product[];

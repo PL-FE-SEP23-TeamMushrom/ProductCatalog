@@ -31,3 +31,5 @@ export const CapacityButton: React.FC<Props> = ({
       </Link>
     );
 };
+
+export default CapacityButton

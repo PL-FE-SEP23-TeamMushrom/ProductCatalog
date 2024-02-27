@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Card } from "components/ProductCard";
-import CardSkeleton from "../CardSkeleton/CardSkeleton";
+import { CardSkeleton } from "components/CardSkeleton";
 
 interface SortingProps {
   products: Product[];
