@@ -1,7 +1,7 @@
-import { Location } from "@/components/Location";
-import getMany from "@/utils/getMany";
+import { Location } from "components/Location";
+import getMany from "utils/getMany";
 import { Suspense } from "react";
-import { Sorting } from "@/components/Sorting";
+import { Sorting } from "components/Sorting";
 
 export default async function Phones() {
   const phones = await getMany("phones");

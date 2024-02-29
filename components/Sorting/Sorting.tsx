@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import { Card } from "@/components/ProductCard";
-import CardSkeleton from "../CardSkeleton/CardSkeleton";
+import { Card } from "components/ProductCard";
+import { CardSkeleton } from "components/CardSkeleton";
 
 interface SortingProps {
   products: Product[];
@@ -79,13 +79,11 @@ const Sorting: React.FC<SortingProps> = ({ products }) => {
       <div className="grid justify-center">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4">
           {sortedProducts.length === 0 &&
-            Array.from(Array(pageSize), (_, i) => <CardSkeleton key={i} />)
-          }
+            Array.from(Array(pageSize), (_, i) => <CardSkeleton key={i} />)}
           {sortedProducts.length > 0 &&
-            sortedProducts.slice(startIndex, startIndex + pageSize)
-            .map((product) => (
-              <Card key={product.id} product={product} />
-            ))}
+            sortedProducts
+              .slice(startIndex, startIndex + pageSize)
+              .map((product) => <Card key={product.id} product={product} />)}
         </div>
       </div>
       <div className="flex justify-center mt-8">

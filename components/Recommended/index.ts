@@ -1,1 +1,1 @@
-export { default as Recommended} from './Recommended';
+export { default as Recommended } from "./Recommended";

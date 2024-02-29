@@ -1,1 +1,1 @@
-export { default as CategoryShop } from './CategoryShop';
+export { default as CategoryShop } from "./CategoryShop";

@@ -1,5 +1,5 @@
-import connectToDatabase from "@/lib/connect";
-import { TechSpec } from "../../lib/types/techSpec";
+import connectToDatabase from "lib/connect";
+import { TechSpec } from "types/techSpec";
 
 const TechSpecs = async () => {
   const db = await connectToDatabase();

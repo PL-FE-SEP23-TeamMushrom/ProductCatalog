@@ -1,1 +1,1 @@
-export { default as TechSpecs } from './TechSpecs';
+export { default as TechSpecs } from "./TechSpecs";

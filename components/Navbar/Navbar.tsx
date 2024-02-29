@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 import { useState } from "react";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import { BurgerMenu } from "components/BurgerMenu";
 import { SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleActive = () => {
-    setIsActive(!isActive); 
+    setIsActive(!isActive);
   };
 
   return (
@@ -91,7 +91,7 @@ const Navbar = () => {
             className="flex items-center h-full border-x border-gray-300"
           >
             <Image
-              className="px-4 py-3 box-content"
+              className="hidden sm:flex px-4 py-3 box-content"
               width={20}
               height={20}
               src={"/icons/shop.svg"}

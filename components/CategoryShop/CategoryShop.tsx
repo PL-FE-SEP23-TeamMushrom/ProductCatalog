@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import mobilePhones from "../../public/mobile-phones.svg";
-import tablets from "../../public/tablets.svg";
-import accessories from "../../public/accessories.svg";
+import mobilePhones from "public/Phones.webp";
+import tablets from "public/Tablets.webp";
+import accessories from "public/Accessories.webp";
 
 export default function CategoryShop() {
   return (
