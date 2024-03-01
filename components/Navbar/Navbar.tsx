@@ -4,18 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BurgerMenu } from "components/BurgerMenu";
 import { SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   const pathname = usePathname();
 
-  const [isActive, setIsActive] = useState(false);
+  const [isBurgerActive, setIsBurgerActive] = useState(false);
 
   const toggleActive = () => {
-    setIsActive(!isActive);
+    setIsBurgerActive(!isBurgerActive);
   };
+
+  useEffect(() => {
+    setIsBurgerActive(false);
+  }, [pathname]);
 
   return (
     <>
@@ -66,7 +70,7 @@ const Navbar = () => {
         <div className="flex items-center border-x border-gray-300">
           <div
             className={`${styles.hamburgermenu} ${
-              isActive ? styles.active : ""
+              isBurgerActive ? styles.active : ""
             }`}
             onClick={toggleActive}
           >
@@ -116,7 +120,7 @@ const Navbar = () => {
           </div>
         </div>
       </header>
-      {isActive && <BurgerMenu />}
+      {isBurgerActive && <BurgerMenu />}
     </>
   );
 };

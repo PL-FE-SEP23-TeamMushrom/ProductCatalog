@@ -4,6 +4,7 @@ import ShoppingBag from "icons/ShoppingBag.svg";
 import Link from "next/link";
 
 export default function BurgerMenu() {
+
   return (
     <div className="menu">
       <ul className="flex flex-col space-y-4 items-center mt-6 mb-69 text-secondary-color font-extrabold">
