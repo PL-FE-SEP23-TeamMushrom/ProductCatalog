@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .h-100vh-54px {
+    height: calc(100vh - 54px);
+  }
+}
+
 .fit-content {
   width: fit-content;
 }
