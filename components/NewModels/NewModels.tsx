@@ -16,12 +16,24 @@ const NewModels: React.FC<NewModelProps> = ({ newModels }) => {
   const squareSize = 32
 
   const handlePrevClick = () => {
-    setStartIndex((prevIndex) => Math.max(prevIndex - numberOfMovedProducts, 0));
-  };
+  setStartIndex((prevIndex) => {
+    if (prevIndex === 0) {
+      return newModels.length - numberOfMovedProducts;
+    } else {
+      return Math.max(prevIndex - numberOfMovedProducts, 0);
+    }
+  });
+};
 
-  const handleNextClick = () => {
-    setStartIndex((prevIndex) => prevIndex + numberOfMovedProducts);
-  };
+const handleNextClick = () => {
+  setStartIndex((prevIndex) => {
+    if (prevIndex + numberOfMovedProducts >= newModels.length) {
+      return 0;
+    } else {
+      return prevIndex + numberOfMovedProducts;
+    }
+  });
+};
 
   return (
     <div className="mx-auto my-10 max-w-screen-xl w-full xs:px-5 sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150 overflow-hidden ">
