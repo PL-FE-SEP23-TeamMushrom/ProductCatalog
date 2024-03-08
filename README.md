@@ -8,6 +8,6 @@ Product Catalog page made by our great squad!
 
 
 
-We made that by using such technologies as: Next.js, Tailwind, and MongoDB database.
+We made it by using such technologies as: Next.js, Tailwind, and MongoDB database.
 
 To be more precise, we were using: HTML, CSS, Typescript, React, and Clerk (for authorization).
