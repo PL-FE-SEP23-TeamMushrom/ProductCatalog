@@ -12,22 +12,33 @@ interface NewModelProps {
 
 const HotPrices: React.FC<NewModelProps> = ({ hotPrices }) => {
   const [startIndex, setStartIndex] = useState(0);
-  const numberOfMovedProducts = 4;
-  const squareSize = 32;
-  const minimumPrice = 1500;
+  const numberOfMovedProducts = 4
+  const squareSize = 32
 
   const handlePrevClick = () => {
-    setStartIndex((prevIndex) => Math.max(prevIndex - numberOfMovedProducts, 0));
-  };
+  setStartIndex((prevIndex) => {
+    if (prevIndex === 0) {
+      return hotPrices.length - numberOfMovedProducts;
+    } else {
+      return Math.max(prevIndex - numberOfMovedProducts, 0);
+    }
+  });
+};
 
-  const handleNextClick = () => {
-    setStartIndex((prevIndex) => prevIndex + numberOfMovedProducts);
-  };
+const handleNextClick = () => {
+  setStartIndex((prevIndex) => {
+    if (prevIndex + numberOfMovedProducts >= hotPrices.length) {
+      return 0;
+    } else {
+      return prevIndex + numberOfMovedProducts;
+    }
+  });
+};
 
   return (
-    <div className="mx-auto my-10 max-w-screen-xl w-full xs:px-5 sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150 overflow-hidden">
+    <div className="mx-auto my-10 max-w-screen-xl w-full xs:px-5 sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150 overflow-hidden ">
       <div className="flex justify-between my-5 xs:w-full sm:w-full md:w-900 lg:w-900 xl:w-1150 2xl:max-w-1150">
-        <h1 className="font-bold text-4xl">Hot prices</h1>
+        <h1 className="font-bold text-4xl">Hot Prices</h1>
         <div>
           <button
             className="border border-gray-300 mr-2"
@@ -51,12 +62,9 @@ const HotPrices: React.FC<NewModelProps> = ({ hotPrices }) => {
         </div>
       </div>
       <div className="flex items-center justify-between gap-4 overflow-auto">
-        {hotPrices
-          .filter((hotPrice) => hotPrice.price > minimumPrice)
-          .slice(startIndex, startIndex + numberOfMovedProducts)
-          .map((hotPrice) => (
-            <Card key={hotPrice.id} product={hotPrice} />
-          ))}
+        {hotPrices.slice(startIndex, startIndex + numberOfMovedProducts).map((hotPrices) => (
+          <Card key={hotPrices.id} product={hotPrices} />
+        ))}
       </div>
     </div>
   );
