@@ -17,13 +17,26 @@ export default function CategoryShop() {
             width={368}
             height={368}
             alt="Mobile phones"
+            className="transition-transform duration-300 transform-gpu hover:scale-105 z-10"
           />
         </Link>
         <Link href="/tablets">
-          <Image src={tablets} alt="Tablets" width={368} height={368} />
+          <Image
+            src={tablets}
+            alt="Tablets"
+            width={368}
+            height={368}
+            className="transition-transform duration-300 transform-gpu hover:scale-105 z-10"
+          />
         </Link>
         <Link href="/accessories">
-          <Image src={accessories} width={368} height={368} alt="Accessories" />
+          <Image
+            src={accessories}
+            width={368}
+            height={368}
+            alt="Accessories"
+            className="transition-transform duration-300 transform-gpu hover:scale-105 z-10"
+          />
         </Link>
       </div>
     </div>

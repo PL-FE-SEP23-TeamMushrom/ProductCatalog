@@ -47,7 +47,7 @@ const NewModels: React.FC<NewModelProps> = ({ newModels }) => {
           </button>
         </div>
       </div>
-      <div className="flex items-center justify-between gap-4 overflow-auto">
+      <div className="flex items-center justify-between p-5 gap-4 overflow-x-auto overflow-y-visible">
         {newModels.slice(startIndex, startIndex + 4).map((newModel) => (
           <Card key={newModel.id} product={newModel} />
         ))}
