@@ -47,7 +47,7 @@ const HotPrices: React.FC<NewModelProps> = ({ hotPrices }) => {
           </button>
         </div>
       </div>
-      <div className="flex items-center justify-between gap-4 overflow-auto">
+      <div className="flex items-center justify-between p-5 gap-4 overflow-x-auto overflow-y-visible">
         {hotPrices
           .filter((hotPrice) => hotPrice.price < 640)
           .slice(startIndex, startIndex + 4)
